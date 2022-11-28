@@ -6,7 +6,7 @@ const Profile = () => {
   return (
     <div id="profile_Box">
       <div>
-        <Heading fontSize="28px" color>
+        <Heading fontSize="28px" color="#333333">
           Hello, Pankaj
         </Heading>
       </div>
@@ -14,9 +14,11 @@ const Profile = () => {
         <Box
           bg="white"
           w="30%"
-          border="1px solid gray"
           color="#333333"
           p="20px"
+          borderRadius="2px"
+          boxShadow="2px 4px 8px 0 rgb(0 0 0 / 10%)"
+          border="solid 1px #d6d6d6"
         >
           <Box
             bg="black"
@@ -47,7 +49,9 @@ const Profile = () => {
               </g>
             </svg>
           </Box>
-          <Heading fontSize="26px">OYO Wizard</Heading>
+          <Heading fontSize="26px" marginBottom="10px">
+            OYO Wizard
+          </Heading>
           <p>
             OYO Wizard is our hospitality membership program. As a member, you
             will be entitled to additional discounts of up to 10% on OYO Wizard
@@ -61,9 +65,11 @@ const Profile = () => {
         <Box
           bg="white"
           w="30%"
-          border="1px solid gray"
           color="#333333"
           p="20px"
+          borderRadius="2px"
+          boxShadow="2px 4px 8px 0 rgb(0 0 0 / 10%)"
+          border="solid 1px #d6d6d6"
         >
           <Box
             borderRadius="50%"
@@ -117,35 +123,45 @@ const Profile = () => {
               </g>
             </svg>
           </Box>
-          <Heading fontSize="26px">Your OYO Money</Heading>
+          <Heading fontSize="26px" marginBottom="10px">
+            Your OYO Money
+          </Heading>
           <p>
-            OYO Money Balance:{" "}
+            OYO Money Balance:
             <strong>
               <span className="profile_Money_Details">₹519</span>
             </strong>
           </p>
           <p>
-            Expired:{" "}
+            Expired:
             <strong>
               <span className="profile_Money_Details">Nov 26, 2022</span>
             </strong>
           </p>
           <p>
-            Usable this month:{" "}
+            Usable this month:
             <strong>
               <span className="profile_Money_Details">
                 ₹519 (max ₹25000 per month)
               </span>
             </strong>
           </p>
-          <p>
-            OYO Money Balance:{" "}
-            <strong>
-              <span className="profile_Money_Details">₹519</span>
-            </strong>
-          </p>
         </Box>
       </div>
+      <Box
+        w="100%"
+        p="30px 60px"
+        border-radius="2px"
+        box-shadow="2px 4px 8px 0 rgb(0 0 0 / 10%)"
+        border="solid 1px #d6d6d6"
+        bgColor="white"
+        marginTop="40px"
+      >
+        <Heading fontSize="28px" color="#333333">
+          Booking History
+        </Heading>
+        <p>Currently </p>
+      </Box>
     </div>
   );
 };
