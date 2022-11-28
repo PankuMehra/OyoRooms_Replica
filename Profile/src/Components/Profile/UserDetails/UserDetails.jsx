@@ -47,7 +47,11 @@ const UserDetails = () => {
           <strong>
             <span className="profile_Money_Details">Name: &nbsp;</span>
           </strong>
-          {userDetails ? <Input htmlSize={7} width="auto" placeholder="Enter Name" /> : "Panku"}
+          {userDetails ? (
+            <Input htmlSize={7} width="auto" placeholder="Enter Name" />
+          ) : (
+            "Panku"
+          )}
         </p>
         <p>
           <strong>
@@ -93,21 +97,37 @@ const UserDetails = () => {
         </Heading>
         <p>
           <strong>
-            <span className="profile_Money_Details">Current Password: &nbsp;</span>
+            <span className="profile_Money_Details">
+              Current Password: &nbsp;
+            </span>
           </strong>
           {password ? (
-            <InputGroup size="md">
-              <Input
-                pr="4.5rem"
-                type={show ? "text" : "password"}
-                placeholder="Enter password"
-              />
-              <InputRightElement width="4.5rem">
-                <Button h="1.75rem" size="sm" onClick={handleClick}>
-                  {show ? "Hide" : "Show"}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
+            <div>
+              <InputGroup size="md">
+                <Input
+                  pr="4.5rem"
+                  type={show ? "text" : "password"}
+                  placeholder="Enter password"
+                />
+                <InputRightElement width="4.5rem">
+                  <Button h="1.75rem" size="sm" onClick={handleClick}>
+                    {show ? "Hide" : "Show"}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+              <InputGroup size="md">
+                <Input
+                  pr="4.5rem"
+                  type={show ? "text" : "password"}
+                  placeholder="Enter password"
+                />
+                <InputRightElement width="4.5rem">
+                  <Button h="1.75rem" size="sm" onClick={handleClick}>
+                    {show ? "Hide" : "Show"}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+            </div>
           ) : (
             "************"
           )}
