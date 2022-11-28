@@ -1,6 +1,6 @@
 import React from "react";
 import "./Profile.css";
-import { Box, Heading, Button} from "@chakra-ui/react";
+import { Box, Heading, Button } from "@chakra-ui/react";
 
 const Profile = () => {
   return (
@@ -54,7 +54,9 @@ const Profile = () => {
             member hotels and will also enjoy exclusive benefits with our
             partner alliances.
           </p>
-          <Button bg="#1ab64f" color="white" margin="15px 0" >Buy Membership</Button>
+          <Button bg="#1ab64f" color="white" margin="15px 0">
+            Buy Membership
+          </Button>
         </Box>
         <Box
           bg="white"
