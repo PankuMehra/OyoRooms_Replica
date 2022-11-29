@@ -1,0 +1,19 @@
+.kk_nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  color: grey;
+}
+.kk_nav > div {
+  display: flex;
+  gap: 10px;
+}
+.kk_nav > :last-child {
+  color: black;
+}
+.kk_nav p:hover {
+  cursor: pointer;
+  color: red;
+}

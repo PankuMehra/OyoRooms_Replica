@@ -1,0 +1,29 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.heading > div {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+.heading > div:first-of-type > p,
+h1 {
+  margin: 0;
+}
+.heading > div:first-of-type > p {
+  color: grey;
+}
+
+.heading > div:last-of-type > button {
+  font-size: 20px;
+  background-color: #3d8000;
+  color: white;
+  border: none;
+  padding: 5px;
+}
+.heading > div:last-of-type > p {
+  margin: 0;
+}
