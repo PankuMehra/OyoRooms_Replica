@@ -1,25 +1,8 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-#profile_Box {
+  }
+  #profile_Box {
     padding: 30px 100px;
-}
-#profile_Desc {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
-}
-/* .profile_Money_Details{
-    color: #333333;
-    font-size: 16px;
-} */
-.profile_wiz_oyo{
-    width: 50px;
-    height: 50px;
-}
-/* .profile_wiz_oyo>img{
-    width: 100%;
-    border-radius: 50%;
-} */
+  }
