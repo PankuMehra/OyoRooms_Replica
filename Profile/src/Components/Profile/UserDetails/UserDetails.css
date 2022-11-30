@@ -1,9 +1,0 @@
-#UserDetails{
-    margin-top: 40px;
-    display: flex;
-    justify-content: space-between;
-}
-#UserDetails > div > p{
-    font-size: 16px;
-    line-height: 32px;
-}
