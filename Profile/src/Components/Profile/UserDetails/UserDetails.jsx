@@ -9,22 +9,88 @@ import {
   InputRightAddon,
   InputRightElement,
 } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { UserAction } from "../../Action/UserAction";
 
 const UserDetails = () => {
-  const [userDetails, setUserDetails] = React.useState(false);
+  const [userShow, setUserShow] = React.useState(false);
   const [password, setPassword] = React.useState(false);
   const [show, setShow] = React.useState(false);
+  const userData = useSelector((storeData) => {
+    return storeData.UserReducer.userData;
+  });
+  console.log(userData.name);
+  const userDispatch = useDispatch();
 
   const handleClick = () => {
     setShow(!show);
   };
 
   const changeUserDetails = () => {
-    setUserDetails(!userDetails);
+    setUserShow(!userShow);
   };
   const changeUserPass = () => {
     setPassword(!password);
   };
+
+  React.useEffect(() => {
+    {
+      userData.length > 0 ? "" : getUserDetails();
+    }
+  }, []);
+  const getUserDetails = async () => {
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    let res = await fetch(`https://oyo-data.onrender.com/users/${currentUser}`);
+    let data = await res.json();
+    UserAction(data, userDispatch);
+  };
+
+  let nameRef = React.useRef(null);
+  let emailRef = React.useRef(null);
+  const updateUserDetails = async () => {
+    let updatedUser = {
+      name: nameRef.current.value,
+      email: emailRef.current.value + "@gmail.com",
+    };
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    let res = await fetch(
+      `https://oyo-data.onrender.com/users/${currentUser}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(updatedUser),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    let data = await res.json();
+    UserAction(data, userDispatch);
+    // console.log(userData)
+    setUserShow(!userShow);
+  };
+
+  let passRef = React.useRef(null);
+  const updatePass = async () => {
+    let updatedUser = {
+      password: passRef.current.value,
+    };
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    let res = await fetch(
+      `https://oyo-data.onrender.com/users/${currentUser}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(updatedUser),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    let data = await res.json();
+    UserAction(data, userDispatch);
+    setPassword(!password);
+  };
+
   return (
     <div id="UserDetails">
       <Box
@@ -43,37 +109,52 @@ const UserDetails = () => {
             <i className="fa-regular fa-pen-to-square"></i>
           </button>
         </Heading>
-        <p>
+        <Box>
           <strong>
             <span className="profile_Money_Details">Name: &nbsp;</span>
           </strong>
-          {userDetails ? (
-            <Input htmlSize={7} width="auto" placeholder="Enter Name" />
+          {userShow ? (
+            <Input
+              htmlSize={7}
+              width="auto"
+              placeholder="Enter Name"
+              ref={nameRef}
+            />
+          ) : userData.name != null ? (
+            userData.name
           ) : (
-            "Panku"
+            ""
           )}
-        </p>
-        <p>
+        </Box>
+        <Box>
           <strong>
             <span className="profile_Money_Details">Phone Number: &nbsp;</span>
           </strong>
-          9991235652
-        </p>
-        <p>
+          {userData.number != null ? userData.number : ""}
+        </Box>
+        <Box>
           <strong>
             <span className="profile_Money_Details">Email Address: &nbsp;</span>
           </strong>
-          {userDetails ? (
+          {userShow ? (
             <InputGroup size="sm">
-              <Input placeholder="Enter Email" />
+              <Input placeholder="Enter Email" ref={emailRef} />
               <InputRightAddon children="@gmail.com" />
             </InputGroup>
+          ) : userData.email != null ? (
+            userData.email
           ) : (
-            "pankajmehra9991833@gmail.com"
+            ""
           )}
-        </p>
-        {userDetails ? (
-          <Button bg="#1ab64f" color="white" float="right" marginTop="30px">
+        </Box>
+        {userShow ? (
+          <Button
+            bg="#1ab64f"
+            color="white"
+            float="right"
+            marginTop="30px"
+            onClick={updateUserDetails}
+          >
             Update
           </Button>
         ) : (
@@ -95,19 +176,40 @@ const UserDetails = () => {
             <i className="fa-regular fa-pen-to-square"></i>
           </button>
         </Heading>
-        <p>
+        <Box>
           <strong>
-            <span className="profile_Money_Details">
-              Current Password: &nbsp;
-            </span>
+            {password ? (
+              <span className="profile_Money_Details">
+                Set New Password: &nbsp;
+              </span>
+            ) : (
+              <span className="profile_Money_Details">
+                Current Password: &nbsp;
+              </span>
+            )}
           </strong>
           {password ? (
-            <div>
+            <Box>
+              <InputGroup size="md" marginBottom="15px">
+                <Input
+                  pr="4.5rem"
+                  type="text"
+                  placeholder="Enter Current Password"
+                />
+              </InputGroup>
+              <InputGroup size="md" marginBottom="15px">
+                <Input
+                  pr="4.5rem"
+                  type="text"
+                  placeholder="Enter New Password"
+                />
+              </InputGroup>
               <InputGroup size="md">
                 <Input
                   pr="4.5rem"
                   type={show ? "text" : "password"}
-                  placeholder="Enter password"
+                  placeholder="Confirm New Password"
+                  ref={passRef}
                 />
                 <InputRightElement width="4.5rem">
                   <Button h="1.75rem" size="sm" onClick={handleClick}>
@@ -115,25 +217,19 @@ const UserDetails = () => {
                   </Button>
                 </InputRightElement>
               </InputGroup>
-              <InputGroup size="md">
-                <Input
-                  pr="4.5rem"
-                  type={show ? "text" : "password"}
-                  placeholder="Enter password"
-                />
-                <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleClick}>
-                    {show ? "Hide" : "Show"}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-            </div>
+            </Box>
           ) : (
-            "************"
+            "*********"
           )}
-        </p>
+        </Box>
         {password ? (
-          <Button bg="#1ab64f" color="white" float="right" marginTop="30px">
+          <Button
+            bg="#1ab64f"
+            color="white"
+            float="right"
+            marginTop="30px"
+            onClick={updatePass}
+          >
             Update
           </Button>
         ) : (

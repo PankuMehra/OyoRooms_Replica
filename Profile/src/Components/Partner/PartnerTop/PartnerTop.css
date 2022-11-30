@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+
+#partnerTop {
+  font-family: "Roboto", sans-serif;
+}
+#partner_Top_image {
+  width: 100%;
+}
+#partner_Logo {
+  width: 240px;
+}
+#joinOyo:hover{
+  color: brown;
+  border: 2px solid brown;
+}
