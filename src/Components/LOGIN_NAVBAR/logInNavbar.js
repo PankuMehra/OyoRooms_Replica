@@ -1,8 +1,7 @@
-import "./logInNavbar.css";
 export const LogInNav = () => {
   return (
-    <div id="login_nav">
-      <div className="login_elem">
+    <div id="sl-nav">
+      <div className="sl-nav-elem">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/1/19/OYO_Rooms_%28logo%29.png"
           alt=""
