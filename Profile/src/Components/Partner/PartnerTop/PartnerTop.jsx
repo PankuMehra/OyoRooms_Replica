@@ -3,6 +3,9 @@ import React from "react";
 import "./PartnerTop.css";
 import bgTop from "../../../Images/partnersTopBackground.jpg";
 import ptLogo from "../../../Images/partnerLogo.png";
+import { JoinForm } from '../JoinForm/JoinForm'
+// import PartnerForm from "../PartnerForm/PartnerForm";
+import FormDialog from "../PartnerForm/PartnerForm";
 
 const PartnerTop = () => {
   return (
@@ -45,22 +48,9 @@ const PartnerTop = () => {
         p="25px 0"
         bgColor="white"
       >
-        <Button
-          color="white"
-          backgroundColor="#ff0007"
-          w="700px"
-          h="45px"
-          m="auto"
-          borderRadius="20px"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          fontSize="22px"
-          fontWeight="600"
-          id="joinOyo"
-        >
-          Join OYO
-        </Button>
+        <JoinForm />
+        {/* <PartnerForm /> */}
+        {/* <FormDialog /> */}
       </Box>
     </div>
   );

@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/poi" element={<Profile />} />
         <Route path="/" element={<Partner />} />
       </Routes>
     </div>
