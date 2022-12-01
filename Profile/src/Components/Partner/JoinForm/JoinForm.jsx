@@ -19,8 +19,20 @@ import {
 
 export function JoinForm() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [state, setState] = React.useState({ image: "s" });
 
   const initialRef = React.useRef(null);
+
+  const fileUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    console.log(file);
+    reader.addEventListener("load", () => {
+      // console.log(reader.result);
+    });
+
+    reader.readAsDataURL(file);
+  };
 
   return (
     <>
@@ -83,33 +95,79 @@ export function JoinForm() {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel fontWeight="600">First name</FormLabel>
+              <FormLabel fontWeight="600">Hotel Name</FormLabel>
               <Input
                 ref={initialRef}
-                placeholder="First name"
+                placeholder="Enter Hote Name"
                 bgColor="white"
                 borderColor="gray"
               />
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel fontWeight="600">Last name</FormLabel>
+              <FormLabel fontWeight="600">Hotel Address</FormLabel>
               <Input
-                placeholder="Last name"
+                placeholder="Enter Hotel Address"
                 bgColor="white"
                 borderColor="gray"
               />
             </FormControl>
             <FormControl mt={4}>
-              <FormLabel fontWeight="600">Add Image</FormLabel>
-              <Input
-                type="file"
-                bgColor="white"
-                borderColor="gray"
-                p="4px"
-                ref={this.myFiles}
-                onChange={this.fileUpload}
-              />
+              <FormLabel fontWeight="600">Add Hotel Images</FormLabel>
+              <Box display="flex">
+                <Input
+                  type="file"
+                  bgColor="white"
+                  borderColor="gray"
+                  p="4px"
+                  // ref={this.myFiles}
+                  onChange={fileUpload}
+                />
+                <Input
+                  type="file"
+                  bgColor="white"
+                  borderColor="gray"
+                  p="4px"
+                  // ref={this.myFiles}
+                  onChange={fileUpload}
+                />
+                <Input
+                  type="file"
+                  bgColor="white"
+                  borderColor="gray"
+                  p="4px"
+                  // ref={this.myFiles}
+                  onChange={fileUpload}
+                />
+              </Box>
+              <br />
+              <Box display="flex" >
+                <Input
+                  type="file"
+                  bgColor="white"
+                  borderColor="gray"
+                  p="4px"
+                  // ref={this.myFiles}
+                  onChange={fileUpload}
+                />
+                <Input
+                  type="file"
+                  bgColor="white"
+                  borderColor="gray"
+                  p="4px"
+                  // ref={this.myFiles}
+                  onChange={fileUpload}
+                />
+                <Input
+                  type="file"
+                  bgColor="white"
+                  borderColor="gray"
+                  p="4px"
+                  // ref={this.myFiles}
+                  onChange={fileUpload}
+                />
+              </Box>
+              
             </FormControl>
           </ModalBody>
           <ModalFooter>
