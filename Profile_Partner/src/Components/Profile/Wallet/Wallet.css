@@ -1,0 +1,23 @@
+#profile_Box p {
+  font-size: 16px;
+  line-height: 1.56;
+}
+#profile_Desc {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+.profile_wiz_oyo {
+  width: 50px;
+  height: 50px;
+}
+@media (max-width: 985px) {
+  #profile_Desc {
+    display: unset;
+  }
+  #profile_Desc > div {
+    /* border: 2px solid red; */
+    margin-top: 30px;
+    width: 100%;
+  }
+}
