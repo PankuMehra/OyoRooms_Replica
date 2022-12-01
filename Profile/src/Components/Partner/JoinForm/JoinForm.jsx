@@ -167,7 +167,6 @@ export function JoinForm() {
                   onChange={fileUpload}
                 />
               </Box>
-              
             </FormControl>
           </ModalBody>
           <ModalFooter>

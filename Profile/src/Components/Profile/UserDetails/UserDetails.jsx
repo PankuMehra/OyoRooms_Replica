@@ -101,7 +101,8 @@ const UserDetails = () => {
         borderRadius="2px"
         boxShadow="2px 4px 8px 0 rgb(0 0 0 / 10%)"
         border="solid 1px #d6d6d6"
-        height="350px"
+        className="userDetailBox"
+        // height="350px"
       >
         <Heading fontSize="26px" marginBottom="30px" color="#222222">
           Edit profile{" "}
@@ -151,7 +152,7 @@ const UserDetails = () => {
           <Button
             bg="#1ab64f"
             color="white"
-            float="right"
+            // float="right"
             marginTop="30px"
             onClick={updateUserDetails}
           >
@@ -169,6 +170,7 @@ const UserDetails = () => {
         borderRadius="2px"
         boxShadow="2px 4px 8px 0 rgb(0 0 0 / 10%)"
         border="solid 1px #d6d6d6"
+        className="userDetailBox"
       >
         <Heading fontSize="26px" marginBottom="30px" color="#222222">
           Change Password{" "}
@@ -188,6 +190,7 @@ const UserDetails = () => {
               </span>
             )}
           </strong>
+          
           {password ? (
             <Box>
               <InputGroup size="md" marginBottom="15px">
@@ -226,7 +229,7 @@ const UserDetails = () => {
           <Button
             bg="#1ab64f"
             color="white"
-            float="right"
+            // float="right"
             marginTop="30px"
             onClick={updatePass}
           >
