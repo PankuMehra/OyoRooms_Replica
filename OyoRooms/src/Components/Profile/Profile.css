@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#profile_Box {
+  padding: 30px 100px;
+}
+@media (max-width: 985px) {
+  #profile_Box {
+    padding: 20px 60px;
+  }
+}
+@media (max-width: 550px) {
+  #profile_Box {
+    padding: 10px 30px;
+  }
+}
