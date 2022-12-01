@@ -14,7 +14,7 @@ import {
   Input,
   ModalFooter,
   Box,
-  Image
+  Image,
 } from "@chakra-ui/react";
 
 export function JoinForm() {
@@ -43,44 +43,100 @@ export function JoinForm() {
       </Button>
       <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <Image bgColor="black" color="white" w="100%" h="100%" position="absolute" top="0px" filter="opacity(40%)" src="https://v.fastcdn.co/u/b33fcfa6/59014657-0-how-to-begin1-man.png" />
-            {/* <img src="" alt="form" style={{opacity: "50%", position: "absolute" }} /> */}
-            <ModalHeader>Create your account</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody pb={6}>
-              <FormControl>
-                <FormLabel>First name</FormLabel>
-                <Input ref={initialRef} placeholder="First name" />
-              </FormControl>
+        <ModalContent
+          maxW="900px"
+          // maxH="350px"
+          id="partnerModal"
+          overflow="hidden"
+          p="20px 60px"
+        >
+          <Image
+            bgColor="black"
+            color="white"
+            w="100%"
+            // h="100%"
+            position="absolute"
+            top="0px"
+            left="0px"
+            filter="opacity(15%)"
+            src="https://v.fastcdn.co/u/b33fcfa6/59014657-0-how-to-begin1-man.png"
+          />
+          <ModalHeader
+            m="auto"
+            zIndex="100"
+            fontSize="35px"
+            color="black"
+            fontWeight="800"
+            letterSpacing="1px"
+          >
+            Get Associated with OYO
+          </ModalHeader>
+          <Box
+            h="1px"
+            bgColor="#ff0007"
+            w="25%"
+            m="auto"
+            zIndex="100"
+            marginTop="-10px"
+            mb="10px"
+          ></Box>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <FormControl>
+              <FormLabel fontWeight="600">First name</FormLabel>
+              <Input
+                ref={initialRef}
+                placeholder="First name"
+                bgColor="white"
+                borderColor="gray"
+              />
+            </FormControl>
 
-              <FormControl mt={4}>
-                <FormLabel>Last name</FormLabel>
-                <Input placeholder="Last name" />
-              </FormControl>
-            </ModalBody>
-
-            <ModalFooter>
-              <Button
-                bgColor="#ee2e24"
-                className="saveCancel"
-                border="1px solid #ee2e24"
-                color="white"
-                mr={3}
-              >
-                Save
-              </Button>
-              <Button
-                bgColor="#ee2e24"
-                className="saveCancel"
-                border="1px solid #ee2e24"
-                color="white"
-                mr={3}
-                onClick={onClose}
-              >
-                Cancel
-              </Button>
-            </ModalFooter>
+            <FormControl mt={4}>
+              <FormLabel fontWeight="600">Last name</FormLabel>
+              <Input
+                placeholder="Last name"
+                bgColor="white"
+                borderColor="gray"
+              />
+            </FormControl>
+            <FormControl mt={4}>
+              <FormLabel fontWeight="600">Add Image</FormLabel>
+              <Input
+                type="file"
+                bgColor="white"
+                borderColor="gray"
+                p="4px"
+                ref={this.myFiles}
+                onChange={this.fileUpload}
+              />
+            </FormControl>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              bgColor="#ff0007"
+              className="saveCancel"
+              color="white"
+              fontWeight="600"
+              fontSize="17px"
+              letterSpacing="0.8px"
+              mr={3}
+            >
+              Save
+            </Button>
+            <Button
+              bgColor="#ff0007"
+              className="saveCancel"
+              color="white"
+              fontWeight="600"
+              fontSize="17px"
+              letterSpacing="0.8px"
+              mr={3}
+              onClick={onClose}
+            >
+              Cancel
+            </Button>
+          </ModalFooter>
           {/* </Box> */}
         </ModalContent>
       </Modal>

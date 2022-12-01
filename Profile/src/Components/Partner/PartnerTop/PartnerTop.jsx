@@ -4,8 +4,6 @@ import "./PartnerTop.css";
 import bgTop from "../../../Images/partnersTopBackground.jpg";
 import ptLogo from "../../../Images/partnerLogo.png";
 import { JoinForm } from '../JoinForm/JoinForm'
-// import PartnerForm from "../PartnerForm/PartnerForm";
-import FormDialog from "../PartnerForm/PartnerForm";
 
 const PartnerTop = () => {
   return (
