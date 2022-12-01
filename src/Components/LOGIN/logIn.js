@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { LogInNav } from "../LOGIN_NAVBAR/logInNavbar";
 import "../SIGNUP/common.css";
 import { Link } from "react-router-dom";
-
 export const LogIn = () => {
   const [state, setState] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
@@ -22,8 +21,8 @@ export const LogIn = () => {
     getData();
   }, []);
 
-  const handleClickShowPassword = () => setShowPassword(true);
-  const handleMouseDownPassword = () => setShowPassword(false);
+  // const handleClickShowPassword = () => setShowPassword(true);
+  // const handleMouseDownPassword = () => setShowPassword(false);
 
   const getData = async () => {
     try {
@@ -130,8 +129,8 @@ export const LogIn = () => {
                   endAdornment: (
                     <InputAdornment position="end">
                       <IconButton
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
+                        onClick={() => setShowPassword(true)}
+                        onMouseDown={() => setShowPassword(false)}
                       >
                         {showPassword ? <Visibility /> : <VisibilityOffIcon />}
                       </IconButton>

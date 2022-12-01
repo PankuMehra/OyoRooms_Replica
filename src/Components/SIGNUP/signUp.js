@@ -5,59 +5,88 @@ import IconButton from "@mui/material/IconButton";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LogInNav } from "../LOGIN_NAVBAR/logInNavbar";
 import "./common.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const SignUp = () => {
+  const [userData, setUserData] = useState();
   const [showPassword, setShowPassword] = useState(false);
-  const [register, setRegister] = useState({
+  const [inputFieldData, setInputFieldData] = useState({
     name: "",
     email: "",
     password: "",
   });
-  console.log(register.name);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+  const getUserData = async () => {
+    const result = await axios.get("https://oyo-data.onrender.com/users");
+    setUserData(result.data);
+    console.log(result.data);
+  };
+  console.log(inputFieldData.name);
   //for showpassord icon
 
   const handleClickShowPassword = () => setShowPassword(true);
   const handleMouseDownPassword = () => setShowPassword(false);
 
-  const sendRegisterData = async (e) => {
-    setRegister({
-      ...register,
+  const handleChangeInputField = async (e) => {
+    setInputFieldData({
+      ...inputFieldData,
       [e.target.name]: e.target.value,
     });
-    console.log(register);
+    console.log(inputFieldData);
   };
   const sendDataToBackend = async (e) => {
     e.preventDefault();
+    setInputFieldData({
+      email: "",
+      name: "",
+      password: "",
+    });
     if (
-      register.name === "" ||
-      register.email === "" ||
-      register.password === ""
+      inputFieldData.name === "" ||
+      inputFieldData.email === "" ||
+      inputFieldData.password === ""
     ) {
       toast.error("some thing error", {
         position: "top-center",
       });
       return;
     }
+
+    // check email unique or not
+    for (let i = 0; i < userData.length; i++) {
+      if (userData[i].email === inputFieldData.email) {
+        toast.info("Email Id Already Exist", {
+          position: "top-center",
+          theme: "colored",
+        });
+        return;
+      }
+    }
+
     toast.success("Register Sucessfull", {
       position: "top-center",
       theme: "colored",
     });
+    console.log(userData);
+    // send data to backend for register new user
     const result = await axios.post(
       "https://oyo-data.onrender.com/users",
-      register
+      inputFieldData
     );
 
     setTimeout(() => {
       navigate("/login");
-    }, 3000);
+    }, 2000);
   };
-  const { email } = register;
+  const { name, email, password } = inputFieldData;
   return (
     <div id="wrap-main-div">
       <LogInNav />
@@ -88,16 +117,17 @@ export const SignUp = () => {
                 Login / Signup
               </Typography>
               <TextField
-                onChange={(e) => sendRegisterData(e)}
+                onChange={(e) => handleChangeInputField(e)}
                 size="small"
                 margin="normal"
                 padding="0"
                 label="Name"
                 placeholder="Enter Name......"
                 name="name"
+                value={name}
               />{" "}
               <TextField
-                onChange={(e) => sendRegisterData(e)}
+                onChange={(e) => handleChangeInputField(e)}
                 size="small"
                 margin="normal"
                 padding="0"
@@ -108,12 +138,13 @@ export const SignUp = () => {
                 value={email}
               />{" "}
               <TextField
-                onChange={(e) => sendRegisterData(e)}
+                onChange={(e) => handleChangeInputField(e)}
                 size="small"
                 margin="normal"
                 label="Password"
                 placeholder="Enter Password"
                 name="password"
+                value={password}
                 required
                 type={showPassword ? "text" : "password"}
                 InputProps={{
