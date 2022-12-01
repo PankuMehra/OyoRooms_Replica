@@ -1,8 +1,13 @@
+
 import { Box, Button, Heading,Text } from '@chakra-ui/react'
 import React from 'react'
 import {BsLockFill} from 'react-icons/bs'
+import PayAtHotel from './PayAtHotel'
+import PayNow from './PayNow'
+
 
 const PaymentCard = () => {
+    const [paynow, setPayNow] = React.useState(false)
   return (
     <Box border='1px solid gray' borderRadius='5px' mt='20px' mb='50px'>
 
@@ -13,13 +18,13 @@ const PaymentCard = () => {
 
     <Box display='flex' p='20px' >
         <Box >
-            <Box>Pay At Hotel</Box>
-            <Box>Pay Now</Box>
+            <Box onClick={()=>setPayNow(false)} p='20px' w='200px' boxShadow='md'><Text as='b'>Pay At Hotel</Text></Box>
+            <Box onClick={()=>setPayNow(true)} p='20px' w='200px' boxShadow='md'><Text as='b'>Pay Now</Text></Box>
+            
         </Box>
-        <Box>
-            <Text as='b'>No payment needed today</Text>
-            <Text as='p'>We will confirm your stay without any charge. Pay directly at the hotel during your stay.</Text>
-            <Button bg='#1ab64f' color='white'>Book Now</Button>
+        <Box textAlign='center' p='10px'>
+        
+            {paynow ? <PayNow /> : <PayAtHotel/>}
         </Box>
     </Box>
 
