@@ -1,6 +1,9 @@
 .maindata {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 60% 33%;
   width: 90%;
   margin: auto;
+  padding: 10px;
+  justify-content: space-between;
+  gap: 20px;
 }

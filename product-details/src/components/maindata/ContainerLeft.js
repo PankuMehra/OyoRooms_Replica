@@ -1,6 +1,8 @@
 import React from "react";
+import Amenities from "../Amenities/Amenities";
 import "./ContainerLeft.css";
-import Heading from "./heading/Heading";
+import Heading from "../heading/Heading";
+import Room from "../Room/Room";
 export default function ContainerLeft(props) {
   const { state } = props;
   console.log(state);
@@ -9,6 +11,8 @@ export default function ContainerLeft(props) {
       {state.length > 0 ? (
         <>
           <Heading state={state} />
+          <Amenities state={state} />
+          <Room />
         </>
       ) : (
         <div>Loading...</div>
@@ -29,6 +33,12 @@ discount
 distance
 : 
 "2.0 km"
+
+"facility1": "Elevator",
+"facility2": "Free Wi-Fi",
+"facility3": "Geyser",
+"facilityX": "+ 6 more",
+"price": "883",
 hotelName
 : 
 "OYO 9605 Hotel Golden Inn"

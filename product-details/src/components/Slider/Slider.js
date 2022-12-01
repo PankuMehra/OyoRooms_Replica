@@ -15,6 +15,7 @@ export default function Slider(props) {
           <img src={state[0].image3} alt={state[0].mainImage}></img>
           <img src={state[0].image4} alt={state[0].mainImage}></img>
           <img src={state[0].image5} alt={state[0].mainImage}></img>
+          {/* <button></button> */}
         </div>
       ) : (
         <div>Loading...</div>
