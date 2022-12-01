@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { UserAction } from "../../Action/UserAction";
+import { UserAction } from "../../../Action/UserAction";
 
 const UserDetails = () => {
   const [userShow, setUserShow] = React.useState(false);
