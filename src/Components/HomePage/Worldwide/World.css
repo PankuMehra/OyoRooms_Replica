@@ -16,7 +16,7 @@
     width: 108px;
     height: 126px;
     left: 130px;
-    top: 710px;
+    top: 610px;
     cursor: pointer;
   }
   .uaeDiv {
@@ -28,7 +28,7 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 830px;
+    top: 730px;
     left: 150px;
   }
   .nepal {
@@ -36,7 +36,7 @@
     width: 108px;
     height: 126px;
     left: 280px;
-    top: 640px;
+    top: 580px;
     cursor: pointer;
   }
   .nepalDiv {
@@ -48,7 +48,7 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 750px;
+    top: 680px;
     left: 300px;
   }
   .china {
@@ -56,7 +56,7 @@
     width: 108px;
     height: 126px;
     left: 440px;
-    top: 600px;
+    top: 550px;
     cursor: pointer;
   }
   .chinaDiv {
@@ -68,15 +68,15 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 720px;
+    top: 665px;
     left: 465px;
   }
   .india {
     position: absolute;
     width: 108px;
     height: 126px;
-    left: 280px;
-    top: 780px;
+    left: 250px;
+    top: 730px;
     cursor: pointer;
   }
   .indiaDiv {
@@ -88,15 +88,15 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 920px;
-    left: 300px;
+    top: 850px;
+    left: 280px;
   }
   .malayasia {
     position: absolute;
     width: 150px;
     height: 100px;
     left: 420px;
-    top: 750px;
+    top: 700px;
     cursor: pointer;
   }
   .malayasiaDiv {
@@ -108,7 +108,7 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 850px;
+    top: 800px;
     left: 500px;
   }
   .indonesia {
@@ -116,7 +116,7 @@
     width: 106px;
     height: 136px;
     left: 380px;
-    top: 880px;
+    top: 800px;
     cursor: pointer;
   }
   .indoDiv {
@@ -128,7 +128,7 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 1010px;
+    top: 950px;
     left: 400px;
   }
   .world-wide-right-section {

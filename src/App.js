@@ -6,8 +6,8 @@ import Navbarfunction from './Components/HomePage/Navbarfunction';
 import BelowNavbar from './Components/HomePage/BelowNavbar';
 import Footer from './Components/HomePage/Footer/Footer';
 import World from './Components/HomePage/Worldwide/World';
-// import CheckInOut from './Components/HomePage/SearchBar/CheckInOut';
-import SearchField from './Components/HomePage/SearchField';
+
+
 
 
 
@@ -19,7 +19,7 @@ function App() {
      <BelowNavbar/>
      <World/>
      {/* <CheckInOut/> */}
-     <SearchField/>
+     {/* <SearchField/> */}
    
      
      <Footer/>

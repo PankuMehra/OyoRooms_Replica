@@ -216,7 +216,7 @@ export default function Navbar2() {
       </div>
       <div>
         <p>All Cities</p>
-        <img src="/Images/right.png" alt="right" />
+        {/* <img src="/Images/right.png" alt="right" /> */}
       </div>
     </div>
   )

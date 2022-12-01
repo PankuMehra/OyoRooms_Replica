@@ -111,14 +111,10 @@ export default function World() {
               <span>157000+</span> <br />
               Hotels & Homes
             </p>
-            {/* <p>
-              <span>150,000</span> <br />
-              Vacation Homes
-            </p> */}
+           
           </div>
           <ul>
-            <li>India</li>
-            
+            <li>India</li> 
             <li>Nepal</li>
             <li>China</li>
             <li>Indonesia</li>
