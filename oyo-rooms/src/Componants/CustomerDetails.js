@@ -2,7 +2,7 @@ import { Box, Button, Grid, Heading, Input, InputGroup, InputLeftAddon, Text} fr
 import React, { useEffect } from 'react'
 import PaymentCard from './PaymentCard'
 
-const CustomerDetails = () => { 
+const CustomerDetails = ({data}) => { 
   const [conBtn, setConBtn] = React.useState(false)
   const [fullName, setFullName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -11,6 +11,7 @@ const CustomerDetails = () => {
   console.log(fullName);
   console.log(email);
   console.log(phNum);
+  console.log(data)
   
   return (
     <Box   textAlign='left' w='650px'  >

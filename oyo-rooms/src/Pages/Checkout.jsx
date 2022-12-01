@@ -1,10 +1,20 @@
 import { Box,HStack,Image,Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import CustomerDetails from '../Componants/CustomerDetails';
 import HotelBookingDetails from '../Componants/HotelBookingDetails';
 import {ChevronLeftIcon} from '@chakra-ui/icons'
 
 const Checkout = () => {
+  const [data, setData] = React.useState({});
+
+  useEffect(()=>{
+     fetch(`https://oyo-data.onrender.com/hotel/1`)
+     .then((res)=>res.json())
+     .then((res2)=> setData(res2))
+  },[])
+  console.log(data)
+
+  
   return (
     <Box   m='0%'  >
       <Box p={"14px"} boxShadow='base'>
@@ -15,11 +25,11 @@ const Checkout = () => {
 
       <HStack w='70%' m='auto' mt='30px'>
         <Box mr='20px' mt='-40px'>
-          <CustomerDetails />
+          <CustomerDetails data={data} />
         </Box>
 
         <Box>
-          <HotelBookingDetails />
+          <HotelBookingDetails data={data} />
         </Box>
       </HStack>
     

@@ -1,24 +1,25 @@
+import { StarIcon } from '@chakra-ui/icons'
 import { Box, Heading, HStack,Text,Image } from '@chakra-ui/react'
 import React from 'react'
 import {FaRegCalendarAlt} from 'react-icons/fa'
 
-const HotelBookingDetails = () => {
+const HotelBookingDetails = ({data}) => {
   return (
     <Box mb='50px' p='20px' w='420px' h='580px'  border='1px solid gray'>
 
     <HStack >
       <Box textAlign='left'>
-      <Heading as='h4' size='sm'>Capital O 13586 Hotel Monarch</Heading>
-      <Text as='p'>Rating</Text>
-      <Text as='b'> Night</Text>
+      <Heading as='h4' size='sm'>{`${data.hotelName}`}</Heading>
+      <Text pb='2px' mt='5px' as='p'><StarIcon color='green'/> {`${data.rating} rating`}</Text>
+      <Text mt='5px' as='b'> Night</Text>
 
       </Box>
       <Box >
-        <Image ml={'30px'} borderRadius='5px' w='80px' src='https://images.oyoroomscdn.com/uploads/hotel_image/35611/thumb/1428e52ba3aab7b4.jpg' />
+        <Image h='60px' ml={'10px'} borderRadius='5px' w='80px' src={`${data.image1}`} />
       </Box>
     </HStack>
 
-    <Box mt='30px' textAlign='left' display='flex'>
+    <Box mt='10px' textAlign='left' display='flex'>
       <Box pt='10px' pb='10px'pr='10px' display='flex'   borderBottom='0.1px solid gray' borderRight='0.1px solid gray'>
       <Box p={'5px'}  ><FaRegCalendarAlt /></Box>
       <Box> Wed, 30 Nov - Thu, 1 Dec</Box>
@@ -33,7 +34,7 @@ const HotelBookingDetails = () => {
 
       <Box mt='30px' display='flex' justifyContent='space-between'>
         <Box>Room price for 1 Night X 2 Guests</Box>
-        <Box as='b'>₹2737</Box>
+        <Box as='b'>₹{`${data.strikedPrice}`}</Box>
       </Box>
 
       <Box mt='30px' display='flex' justifyContent='space-between'>
@@ -42,8 +43,8 @@ const HotelBookingDetails = () => {
       </Box>
 
       <Box mt='30px' display='flex' justifyContent='space-between'>
-        <Box>55% Coupon Discount</Box>
-        <Box as='b'>₹1035</Box>
+        <Box>{`${data.discount}`} Coupon Discount</Box>
+        <Box as='b'>₹{`${data.discount * (+data.strikedPrice/100)}`}</Box>
       </Box>
 
       <Box mt='30px' mb='30px' display='flex' justifyContent='space-between'>
@@ -58,7 +59,7 @@ const HotelBookingDetails = () => {
         <Text as={'p'}>Payable Amount</Text>
         <Text as={'p'} fontSize='xs' >inclusive of all taxes</Text>
         </Box>
-        <Box><Text as='b' fontSize='2xl' >₹618</Text></Box>
+        <Box><Text as='b' fontSize='2xl' >₹{`${data.price}`}</Text></Box>
       </Box>
 
     
