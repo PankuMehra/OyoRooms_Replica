@@ -17,7 +17,7 @@ const CustomerDetails = () => {
     <Box borderRadius='5px' textAlign='center' mb='20px'  color='#d59560' bg='#fef6e9' p='10px' border='1px solid yellow'>🎉 Yay! you just saved ₹1201 on this booking!</Box>
 
     <Box borderRadius='5px' border='1px solid gray'>
-    <Box textAlign='left' bg='#f9f9fb' p='20px'><Heading as='h2' size='md'>Enter your details</Heading></Box>
+    <Box textAlign='left' bg='#f9f9fb' p='20px'><Heading as='h2' size='md'>1. Enter your details</Heading></Box>
 
     <Box p='30px'>We will use these details to share your booking information</Box>
 
@@ -47,7 +47,7 @@ const CustomerDetails = () => {
 
     </Box>
     {conBtn ? <PaymentCard /> : 
-    <Box color='gray' borderRadius='5px' mt='10px' textAlign='left'  p='15px' border='1px solid gray'>Complete your booking</Box>
+    <Box color='gray' borderRadius='5px' mt='10px' textAlign='left'  p='15px' border='1px solid gray'>2. Complete your booking</Box>
     }
     </Box>
   )

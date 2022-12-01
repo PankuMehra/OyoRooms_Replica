@@ -12,7 +12,7 @@ const PaymentCard = () => {
     <Box border='1px solid gray' borderRadius='5px' mt='20px' mb='50px'>
 
     <Box bg='#f9f9fb' display='flex' justifyContent='space-between'>
-    <Box p='20px'><Heading fontSize={'2xl'} as='h2'>Complete your booking</Heading></Box>
+    <Box p='20px'><Heading fontSize={'2xl'} as='h2'>2. Complete your booking</Heading></Box>
     <Box  p='25px'><Text color='green' fontSize={'sm'} as='spam'> 100% Secure payments</Text></Box>
     </Box>
 
@@ -22,7 +22,7 @@ const PaymentCard = () => {
             <Box onClick={()=>setPayNow(true)} p='20px' w='200px' boxShadow='md'><Text as='b'>Pay Now</Text></Box>
             
         </Box>
-        <Box textAlign='center' p='10px'>
+        <Box textAlign='center' >
         
             {paynow ? <PayNow /> : <PayAtHotel/>}
         </Box>

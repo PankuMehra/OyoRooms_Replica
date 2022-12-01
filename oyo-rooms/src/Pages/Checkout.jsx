@@ -11,7 +11,7 @@ const Checkout = () => {
       <Image  w='95px' ml='12px'   src='https://qph.cf2.quoracdn.net/main-qimg-b8bf0fbc22cdb8223cbb298ea1c0ca67' />
       </Box>
 
-      <Box ml='200px' mt='30px'   textAlign='left' color='red.500'   ><Text as='b' > <ChevronLeftIcon /> Modify your booking </Text></Box>
+      <Box ml='200px' mt='30px'   textAlign='left' color='red.500' mb='80px'  ><Text as='b' > <ChevronLeftIcon /> Modify your booking </Text></Box>
 
       <HStack w='70%' m='auto' mt='30px'>
         <Box mr='20px' mt='-40px'>
