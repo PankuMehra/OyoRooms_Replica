@@ -7,3 +7,8 @@
   justify-content: space-between;
   gap: 20px;
 }
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  .maindata {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

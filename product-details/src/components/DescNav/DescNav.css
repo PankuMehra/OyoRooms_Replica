@@ -24,3 +24,19 @@
   cursor: pointer;
   color: red;
 }
+.collapse {
+  display: none;
+}
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  .kk_nav {
+    display: none;
+  }
+  .collapse {
+    display: flex;
+    padding: 10px;
+    height: 30px;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
