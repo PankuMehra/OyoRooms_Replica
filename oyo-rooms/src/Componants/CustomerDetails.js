@@ -14,7 +14,7 @@ const CustomerDetails = ({data}) => {
   console.log(data)
   
   return (
-    <Box   textAlign='left' w='650px'  >
+    <Box mb='50px'  textAlign='left' w='650px'  >
     <Box borderRadius='5px' textAlign='center' mb='20px'  color='#d59560' bg='#fef6e9' p='10px' border='1px solid yellow'>🎉 Yay! you just saved ₹1201 on this booking!</Box>
 
     <Box borderRadius='5px' border='1px solid gray'>

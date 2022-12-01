@@ -5,7 +5,7 @@ import {FaRegCalendarAlt} from 'react-icons/fa'
 
 const HotelBookingDetails = ({data}) => {
   return (
-    <Box mb='50px' p='20px' w='420px' h='580px'  border='1px solid gray'>
+    <Box   p='20px' w='420px' h='480px'  border='1px solid gray'>
 
     <HStack >
       <Box textAlign='left'>
@@ -37,20 +37,13 @@ const HotelBookingDetails = ({data}) => {
         <Box as='b'>₹{`${data.strikedPrice}`}</Box>
       </Box>
 
-      <Box mt='30px' display='flex' justifyContent='space-between'>
-        <Box>Price Drop</Box>
-        <Box as='b'>₹856</Box>
-      </Box>
 
-      <Box mt='30px' display='flex' justifyContent='space-between'>
+      <Box mb='30px' mt='30px' display='flex' justifyContent='space-between'>
         <Box>{`${data.discount}`} Coupon Discount</Box>
-        <Box as='b'>₹{`${data.discount * (+data.strikedPrice/100)}`}</Box>
+        <Box as='b' >-{`${data.discount}`}</Box>
       </Box>
 
-      <Box mt='30px' mb='30px' display='flex' justifyContent='space-between'>
-        <Box>OYO Money Applied</Box>
-        <Box as='b'>₹273</Box>
-      </Box>
+      
 
       <hr  />
 
