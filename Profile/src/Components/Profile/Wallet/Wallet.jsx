@@ -1,13 +1,17 @@
 import React from "react";
 import "./Wallet.css";
 import { Box, Heading, Button } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 
 const Wallet = () => {
+  const userData = useSelector((storeData) => {
+    return storeData.UserReducer.userData;
+  });
   return (
     <div>
       <div>
         <Heading fontSize="28px" color="#333333">
-          Hello, Pankaj
+          Hello, {userData.name}
         </Heading>
       </div>
       <div id="profile_Desc">
@@ -129,19 +133,19 @@ const Wallet = () => {
             Your OYO Money
           </Heading>
           <p>
-            OYO Money Balance:
+            OYO Money Balance: &nbsp;
             <strong>
               <span className="profile_Money_Details">₹519</span>
             </strong>
           </p>
           <p>
-            Expired:
+            Expired: &nbsp;
             <strong>
               <span className="profile_Money_Details">Nov 26, 2022</span>
             </strong>
           </p>
           <p>
-            Usable this month:
+            Usable this month: &nbsp;
             <strong>
               <span className="profile_Money_Details">
                 ₹519 (max ₹25000 per month)
