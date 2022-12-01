@@ -4,7 +4,7 @@ import {FaRegCalendarAlt} from 'react-icons/fa'
 
 const HotelBookingDetails = () => {
   return (
-    <Box mb='50px' p='20px' w='420px' h='600px'  border='1px solid gray'>
+    <Box mb='50px' p='20px' w='420px' h='580px'  border='1px solid gray'>
 
     <HStack >
       <Box textAlign='left'>
@@ -33,22 +33,22 @@ const HotelBookingDetails = () => {
 
       <Box mt='30px' display='flex' justifyContent='space-between'>
         <Box>Room price for 1 Night X 2 Guests</Box>
-        <Box>₹2737</Box>
+        <Box as='b'>₹2737</Box>
       </Box>
 
       <Box mt='30px' display='flex' justifyContent='space-between'>
         <Box>Price Drop</Box>
-        <Box>₹856</Box>
+        <Box as='b'>₹856</Box>
       </Box>
 
       <Box mt='30px' display='flex' justifyContent='space-between'>
         <Box>55% Coupon Discount</Box>
-        <Box>₹1035</Box>
+        <Box as='b'>₹1035</Box>
       </Box>
 
       <Box mt='30px' mb='30px' display='flex' justifyContent='space-between'>
         <Box>OYO Money Applied</Box>
-        <Box>₹273</Box>
+        <Box as='b'>₹273</Box>
       </Box>
 
       <hr  />
@@ -56,9 +56,9 @@ const HotelBookingDetails = () => {
       <Box mt='30px' mb='30px' display='flex' justifyContent='space-between'>
         <Box>
         <Text as={'p'}>Payable Amount</Text>
-        <Text as={'p'} size='sm'>inclusive of all taxes</Text>
+        <Text as={'p'} fontSize='xs' >inclusive of all taxes</Text>
         </Box>
-        <Box><Text as='b'>₹618</Text></Box>
+        <Box><Text as='b' fontSize='2xl' >₹618</Text></Box>
       </Box>
 
     
