@@ -34,6 +34,10 @@ export function JoinForm() {
     reader.readAsDataURL(file);
   };
 
+  const addImageFn = () => {
+    document.getElementById("ImageChooseBox").innerHTML += ``;
+  };
+
   return (
     <>
       {/* <Button>Open Modal</Button> */}
@@ -95,7 +99,9 @@ export function JoinForm() {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <form>
-              <FormLabel fontWeight="600">Hotel Name*</FormLabel>
+              <FormLabel className="partnerInputs" fontWeight="600">
+                Hotel Name*
+              </FormLabel>
               <Input
                 ref={initialRef}
                 placeholder="Enter Hote Name"
@@ -106,7 +112,9 @@ export function JoinForm() {
               {/* </FormControl> */}
 
               {/* <FormControl mt={4}> */}
-              <FormLabel fontWeight="600">City*</FormLabel>
+              <FormLabel className="partnerInputs" fontWeight="600">
+                City*
+              </FormLabel>
               <Input
                 placeholder="Enter City Name"
                 bgColor="white"
@@ -115,7 +123,9 @@ export function JoinForm() {
               />
               {/* </FormControl> */}
               {/* <FormControl mt={4}> */}
-              <FormLabel fontWeight="600">Full Address*</FormLabel>
+              <FormLabel className="partnerInputs" fontWeight="600">
+                Full Address*
+              </FormLabel>
               <Input
                 placeholder="Enter Hotel Address"
                 bgColor="white"
@@ -124,7 +134,38 @@ export function JoinForm() {
               />
               {/* </FormControl> */}
               {/* <FormControl mt={4}> */}
-              <FormLabel fontWeight="600">Add Hotel Images</FormLabel>
+              <FormLabel className="partnerInputs" fontWeight="600">
+                Add Hotel Images
+              </FormLabel>
+              <Box id="ImageChooseBox">
+                <Input
+                  type="file"
+                  bgColor="white"
+                  borderColor="gray"
+                  p="4px"
+                  onChange={fileUpload}
+                />
+              </Box>
+              <Button bgColor="gray" color="white" onClick={addImageFn}>
+                Add Image
+              </Button>
+              {/* <Input
+                  type="file"
+                  bgColor="white"
+                  borderColor="gray"
+                  p="4px"
+                  // ref={this.myFiles}
+                  onChange={fileUpload}
+                />
+                <Input
+                  type="file"
+                  bgColor="white"
+                  borderColor="gray"
+                  p="4px"
+                  // ref={this.myFiles}
+                  onChange={fileUpload}
+                /> */}
+              {/* <br />
               <Box display="flex">
                 <Input
                   type="file"
@@ -150,34 +191,7 @@ export function JoinForm() {
                   // ref={this.myFiles}
                   onChange={fileUpload}
                 />
-              </Box>
-              <br />
-              <Box display="flex">
-                <Input
-                  type="file"
-                  bgColor="white"
-                  borderColor="gray"
-                  p="4px"
-                  // ref={this.myFiles}
-                  onChange={fileUpload}
-                />
-                <Input
-                  type="file"
-                  bgColor="white"
-                  borderColor="gray"
-                  p="4px"
-                  // ref={this.myFiles}
-                  onChange={fileUpload}
-                />
-                <Input
-                  type="file"
-                  bgColor="white"
-                  borderColor="gray"
-                  p="4px"
-                  // ref={this.myFiles}
-                  onChange={fileUpload}
-                />
-              </Box>
+              </Box> */}
               <Box display="flex" mt="20px">
                 <Input
                   type="submit"
@@ -205,7 +219,7 @@ export function JoinForm() {
                   onClick={onClose}
                   value="Cancel"
                 />
-                  {/* Cancel
+                {/* Cancel
                 </Button> */}
               </Box>
             </form>

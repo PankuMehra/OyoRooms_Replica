@@ -7,3 +7,9 @@
     background-color: white;
     color: #ee2e24;
 }
+.partnerInputs{
+  margin-top: 10px;
+}
+#ImageChooseBox > input{
+  margin-bottom: 10px;
+}
