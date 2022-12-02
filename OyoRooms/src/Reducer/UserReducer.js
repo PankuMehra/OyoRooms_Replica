@@ -1,5 +1,6 @@
 let initData = {
   userData: [],
+  hotelData: [],
 };
 
 export const UserReducer = (storeData = initData, action) => {
@@ -7,7 +8,13 @@ export const UserReducer = (storeData = initData, action) => {
     case "userData": {
       return {
         ...storeData,
-        userData: action.payload
+        userData: action.payload,
+      };
+    }
+    case "hotelData": {
+      return {
+        ...storeData,
+        hotelData: action.payload,
       };
     }
 
