@@ -1,4 +1,10 @@
-import { Button, TextField, Typography, InputAdornment } from "@mui/material";
+import {
+  Button,
+  TextField,
+  Typography,
+  InputAdornment,
+  getPaginationUtilityClass,
+} from "@mui/material";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Visibility from "@mui/icons-material/Visibility";
 import IconButton from "@mui/material/IconButton";
@@ -10,7 +16,9 @@ import { LogInNav } from "../LOGIN_NAVBAR/logInNavbar";
 import "./common.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import GoogleButton from "react-google-button";
+// import GoogleButton from "react-google-button";
+// import { LogedIn } from "../Google Login/googleLogin";
+// import { gapi } from "gapi-script";
 // import { LogedIn } from "../Google Login/googleLogin";
 
 export const SignUp = () => {
@@ -29,6 +37,17 @@ export const SignUp = () => {
   useEffect(() => {
     getUserData();
   }, []);
+  // const clientid =
+  //   "291586213988-15e4vphul9cg4tep7fbkmchs8ekk74om.apps.googleusercontent.com";
+  // useEffect(() => {
+  //   function start() {
+  //     gapi.client.init({
+  //       clientId: clientid,
+  //       scope: "",
+  //     });
+  //   }
+  //   gapi.load("client:auth2", start);
+  // });
   console.log(userData);
   const getUserData = async () => {
     const result = await axios.get("https://oyo-data.onrender.com/users");
@@ -49,7 +68,7 @@ export const SignUp = () => {
     if (regrex.test(inputFieldData.email)) {
       setCheckValidEmail("");
     } else {
-      setCheckValidEmail("Please Enterr Valid Email");
+      setCheckValidEmail("Please Enter Valid Email");
     }
     console.log(inputFieldData);
   };
@@ -65,8 +84,9 @@ export const SignUp = () => {
       inputFieldData.email === "" ||
       inputFieldData.password === ""
     ) {
-      toast.error("some thing error", {
+      toast.info("Please fill all the field", {
         position: "top-center",
+        theme: "dark",
       });
       return;
     }
