@@ -10,20 +10,26 @@ import { LogInNav } from "../LOGIN_NAVBAR/logInNavbar";
 import "./common.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import GoogleButton from "react-google-button";
+// import { LogedIn } from "../Google Login/googleLogin";
 
 export const SignUp = () => {
   const [userData, setUserData] = useState();
   const [showPassword, setShowPassword] = useState(false);
+  const [checkValidEmail, setCheckValidEmail] = useState("");
   const [inputFieldData, setInputFieldData] = useState({
     name: "",
     email: "",
     password: "",
   });
   const navigate = useNavigate();
+  const regrex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   useEffect(() => {
     getUserData();
   }, []);
+  console.log(userData);
   const getUserData = async () => {
     const result = await axios.get("https://oyo-data.onrender.com/users");
     setUserData(result.data);
@@ -40,6 +46,11 @@ export const SignUp = () => {
       ...inputFieldData,
       [e.target.name]: e.target.value,
     });
+    if (regrex.test(inputFieldData.email)) {
+      setCheckValidEmail("");
+    } else {
+      setCheckValidEmail("Please Enterr Valid Email");
+    }
     console.log(inputFieldData);
   };
   const sendDataToBackend = async (e) => {
@@ -90,7 +101,8 @@ export const SignUp = () => {
   return (
     <div id="wrap-main-div">
       <LogInNav />
-
+      {/* <LogedIn /> */}
+      {/* <GoogleButton onClick={LogedIn} /> */}
       <div className="sl-main-div">
         <div className="sl-left-div">
           <h2
@@ -135,8 +147,12 @@ export const SignUp = () => {
                 placeholder="Enter Email...."
                 name="email"
                 required
+                type="email"
                 value={email}
               />{" "}
+              <p style={{ color: "red", marginLeft: "5px" }}>
+                {checkValidEmail}
+              </p>
               <TextField
                 onChange={(e) => handleChangeInputField(e)}
                 size="small"
@@ -164,7 +180,7 @@ export const SignUp = () => {
                 disabled={email === "" ? true : false}
                 onClick={(e) => sendDataToBackend(e)}
                 variant="contained"
-                color="secondary"
+                color="warning"
                 margin="normal"
                 sx={{
                   mt: "10px",
@@ -176,6 +192,7 @@ export const SignUp = () => {
               >
                 Register
               </Button>
+              {/* <Google /> */}
               <p>
                 Prefer to Sign in with password instead ?{" "}
                 <Link
