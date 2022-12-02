@@ -4,17 +4,15 @@ import Partner from "./Components/Partner/Partner";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./Components/HomePage/HomePage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import { LogIn } from "./Components/LOGIN/logIn";
+import { SignUp } from "./Components/SIGNUP/signUp";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route
-          path="/login"
-          element={
-              <Profile />
-          }
-        />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<LogIn />} />
         <Route
           path="/profile"
           element={
