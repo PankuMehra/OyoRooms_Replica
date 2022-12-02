@@ -1,0 +1,130 @@
+/* NAVBAR CSS */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.mainNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  /* border:5px solid red; */
+}
+.navbar-logo {
+  padding: 20px;
+}
+.abk-leftnav {
+  padding: 0px 0px 0px 80px;
+}
+.abk-rightnav {
+  display: flex;
+  align-items: center;
+  /* padding:0px 0px 90px 90px; */
+}
+.abk-rightnav > * {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.abk-rightnav div:nth-of-type(4) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+}
+.abk-rightnav div:nth-of-type(4) p {
+  margin-left: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.015em;
+}
+.login-signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #000;
+  font-weight: bolder;
+  border-bottom: none;
+}
+
+/* NAVBAR2 */
+.down {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 30px;
+  height: 42px;
+  cursor: pointer;
+}
+.down:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.down:hover.down div {
+  transform: rotate(180deg);
+  transition: all 0.3s;
+}
+.down p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.015em;
+  /* border: 1px solid red; */
+}
+.down > div {
+  /* border: 1px solid red; */
+  margin-left: 8px;
+  margin-right: -10px;
+}
+/* .down > img {
+  border: 1px solid red;
+  margin-left: 8px;
+  margin-right: 5px;
+} */
+.locations {
+  display: flex;
+  align-items: center;
+  /* background: #f2f2f2; */
+  padding: 0px 30px;
+  background-color: aliceblue;
+  color: rgb(-8 0 0 / 0.7);
+}
+.locations div:nth-of-type(12) {
+  display: flex;
+}
+.locations div:nth-of-type(12) p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.005em;
+  color: #ee2e24;
+}
+.locations div:nth-of-type(12) img {
+  object-fit: contain;
+  margin-left: 5px;
+}
+.dropdown {
+  position: absolute;
+  top: 118px;
+  padding: 10px 35px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.08), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
+  z-index: 5;
+  background-color: #ffffff;
+}
+.dropdown p {
+  margin: 15px;
+  cursor: pointer;
+}
+.dropdown p:nth-of-type(1) {
+  font-weight: bold;
+}
+.dropdown p:hover {
+  color: red;
+  transition: all 0.15s;
+}
+.belowNav {
+  padding: 30px;
+}
+.belowNav img {
+  width: 100%;
+}

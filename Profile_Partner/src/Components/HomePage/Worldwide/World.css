@@ -1,0 +1,171 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.world-wide {
+    background: #f4fcfe;
+    width: 100%;
+    display: flex;
+    /* margin-left: 50px; */
+    padding-bottom: 50px;
+  }
+  .uae {
+    position: absolute;
+    width: 108px;
+    height: 126px;
+    left: 130px;
+    top: 610px;
+    cursor: pointer;
+  }
+  .uaeDiv {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    background-color: white;
+    top: 730px;
+    left: 150px;
+  }
+  .nepal {
+    position: absolute;
+    width: 108px;
+    height: 126px;
+    left: 280px;
+    top: 580px;
+    cursor: pointer;
+  }
+  .nepalDiv {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    background-color: white;
+    top: 680px;
+    left: 300px;
+  }
+  .china {
+    position: absolute;
+    width: 108px;
+    height: 126px;
+    left: 440px;
+    top: 550px;
+    cursor: pointer;
+  }
+  .chinaDiv {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    background-color: white;
+    top: 665px;
+    left: 465px;
+  }
+  .india {
+    position: absolute;
+    width: 108px;
+    height: 126px;
+    left: 250px;
+    top: 730px;
+    cursor: pointer;
+  }
+  .indiaDiv {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    background-color: white;
+    top: 850px;
+    left: 280px;
+  }
+  .malayasia {
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    left: 420px;
+    top: 700px;
+    cursor: pointer;
+  }
+  .malayasiaDiv {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    background-color: white;
+    top: 800px;
+    left: 500px;
+  }
+  .indonesia {
+    position: absolute;
+    width: 106px;
+    height: 136px;
+    left: 380px;
+    top: 800px;
+    cursor: pointer;
+  }
+  .indoDiv {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    background-color: white;
+    top: 950px;
+    left: 400px;
+  }
+  .world-wide-right-section {
+    padding: 50px 120px;
+    text-align: left;
+    overflow: hidden;
+  }
+  .world-wide-right-section > p:nth-of-type(1) {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 31px;
+    letter-spacing: 0.005em;
+    margin-bottom: 40px;
+  }
+  .world-wide-right-section > p:nth-of-type(2) {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 40px;
+  }
+  .world-wide-right-section div {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-style: normal;
+  }
+  .world-wide-right-section div span {
+    font-size: 40px;
+  }
+  .world-wide-right-section ul {
+    display: grid;
+    grid-template-columns: repeat(3, 50%);
+  }
+  .world-wide-right-section ul li {
+    margin: 10px;
+    font-size: 25px;
+  }
