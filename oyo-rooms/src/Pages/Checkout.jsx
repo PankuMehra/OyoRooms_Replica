@@ -73,12 +73,12 @@ const Checkout = () => {
 
       <Box ml='200px' mt='30px'   textAlign='left' color='red.500' mb='80px'  ><Text as='b' > <ChevronLeftIcon /> Modify your booking </Text></Box>
 
-      <HStack w='72%' m='auto' mt='30px'>
+      <HStack display='flex' alignItems='flex-start' w='72%' m='auto' mt='30px'>
         <Box mr='20px' mt='-40px'>
           <CustomerDetails data={data} />
         </Box>
 
-        <Box  >
+        <Box >
           <HotelBookingDetails data={data} />
         </Box>
       </HStack>
