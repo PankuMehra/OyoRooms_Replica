@@ -584,7 +584,7 @@ export function JoinForm() {
                     name="mainImage"
                     onChange={fileUpload}
                   />
-                  <Input
+                  {/* <Input
                     type="file"
                     bgColor="white"
                     borderColor="gray"
@@ -631,7 +631,7 @@ export function JoinForm() {
                     // ref={this.myFiles}
                     name="image5"
                     onChange={fileUpload}
-                  />
+                  /> */}
                 </Box>
 
                 <Box display="flex" mt="20px">

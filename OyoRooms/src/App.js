@@ -6,6 +6,7 @@ import HomePage from "./Components/HomePage/HomePage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import { LogIn } from "./Components/LOGIN/logIn";
 import { SignUp } from "./Components/SIGNUP/signUp";
+import DisplayHotel from "./Components/Hotels/DisplayHotel";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/hotels" element={<DisplayHotel />} />
         <Route path="/partner" element={<Partner />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
