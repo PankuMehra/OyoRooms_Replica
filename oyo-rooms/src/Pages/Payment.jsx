@@ -1,6 +1,7 @@
 import { Box, Heading, Text,Image, Button, Skeleton, Stack } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import breakfast from '../Images/breakfastcards.png'
+import { URL } from '../URL';
 
 const Payment = () => {
   const [data, setData] = React.useState({});
@@ -12,7 +13,7 @@ const Payment = () => {
 
   useEffect(()=>{
     setLoading(true)
-     fetch(`https://oyo-data.onrender.com/hotel/1`)
+     fetch(`${URL.hotel}/1`)
      .then((res)=>res.json())
      .then((res2)=> setData(res2))
      .catch((error)=> setError(true))

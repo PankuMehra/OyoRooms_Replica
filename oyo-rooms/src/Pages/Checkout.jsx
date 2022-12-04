@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import CustomerDetails from '../Componants/CustomerDetails';
 import HotelBookingDetails from '../Componants/HotelBookingDetails';
 import {ChevronLeftIcon} from '@chakra-ui/icons'
+import { URL } from '../URL';
 
 const Checkout = () => {
   const [data, setData] = React.useState({});
@@ -14,7 +15,7 @@ const Checkout = () => {
 
   useEffect(()=>{
     setLoading(true)
-     fetch(`https://oyo-data.onrender.com/hotel/1`)
+     fetch(`${URL.hotel}/1`)
      .then((res)=>res.json())
      .then((res2)=> setData(res2))
      .catch((error)=> setError(true))
