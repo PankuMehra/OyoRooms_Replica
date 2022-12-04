@@ -1,13 +1,9 @@
-import React from 'react'
-import Navbarfunction from './Navbarfunction'
-
+import React from "react";
+import Navbarfunction from "./Navbarfunction";
 
 export default function Navbar2() {
   return (
-    <div className="locations">
-    
-     
-     
+    <div className="locations" >
       <div>
         <Navbarfunction
           name="Bangalore"
@@ -26,8 +22,6 @@ export default function Navbar2() {
           ]}
         />
       </div>
-
-
 
       <div>
         <Navbarfunction
@@ -102,8 +96,7 @@ export default function Navbar2() {
           ]}
         />
       </div>
-     
-     
+
       <div>
         <Navbarfunction
           name="Kolkata"
@@ -195,7 +188,7 @@ export default function Navbar2() {
           ]}
         />
       </div>
-     
+
       {/* <div>
         <Navbarfunction
           name="Goa"
@@ -219,6 +212,5 @@ export default function Navbar2() {
         {/* <img src="/Images/right.png" alt="right" /> */}
       </div>
     </div>
-  )
+  );
 }
-

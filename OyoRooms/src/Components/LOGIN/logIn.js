@@ -52,7 +52,7 @@ export const LogIn = () => {
       ) {
         flag = true;
         // localStorage.setItem("Acess",JSON.stringify(state[i]))
-        localStorage.setItem("accessToken", state[i].id);
+        localStorage.setItem("currentUser", state[i].id);
       }
     }
     if (flag === true) {
@@ -154,7 +154,7 @@ export const LogIn = () => {
               <p>
                 Don't have an Account ?{" "}
                 <Link
-                  to="/"
+                  to="/signup"
                   style={{
                     textDecoration: "none",
                     fontWeight: "bold",
