@@ -25,7 +25,7 @@ export default function Navbarfunction(props) {
 
       {div ? (
         <div
-          className="dropdown"
+          id="dropdown"
           onMouseEnter={handleEvent}
           onMouseLeave={() => {
             setdiv(false);

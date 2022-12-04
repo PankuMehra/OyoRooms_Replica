@@ -103,22 +103,22 @@
   object-fit: contain;
   margin-left: 5px;
 }
-.dropdown {
+#dropdown {
   position: absolute;
-  top: 118px;
-  padding: 10px 35px;
+  /* top: 88px; */
+  padding: 10px 0;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.08), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
-  z-index: 5;
+  z-index: 60;
   background-color: #ffffff;
 }
-.dropdown p {
+#dropdown p {
   margin: 15px;
   cursor: pointer;
 }
-.dropdown p:nth-of-type(1) {
+#dropdown p:nth-of-type(1) {
   font-weight: bold;
 }
-.dropdown p:hover {
+#dropdown p:hover {
   color: red;
   transition: all 0.15s;
 }

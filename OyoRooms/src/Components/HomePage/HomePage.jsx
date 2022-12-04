@@ -3,6 +3,7 @@ import Navbar2 from "./Navbar2";
 import BelowNavbar from "./BelowNavbar";
 import Footer from "./Footer/Footer";
 import World from "./Worldwide/World";
+import SearchBanner from "./searchBanner/SearchBanner";
 // import "./HomePage.css"
 
 function HomePage() {
@@ -10,6 +11,7 @@ function HomePage() {
     <div className="Homeage">
       <Navbar1 />
       <Navbar2 />
+      <SearchBanner />
       <BelowNavbar />
       <World />
       <Footer />
