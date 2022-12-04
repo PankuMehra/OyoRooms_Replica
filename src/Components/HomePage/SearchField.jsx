@@ -1,15 +1,10 @@
-// import React from 'react'
 // import { RangeDatePicker } from "react-google-flight-datepicker";
 // import "react-google-flight-datepicker/dist/main.css";
 // import React, { useState, useRef, useEffect } from "react";
 // import { useHistory } from "react-router-dom";
 
-
-
-
-// export default function Searchfield() {
-
-//     const history = useHistory();
+// function SearchField() {
+//   const history = useHistory();
 //   const [roomCounter, setroomCounter] = useState(1);
 //   const [rooms, setrooms] = useState(false);
 //   const [roomsNum, setroomsNum] = useState(1);
@@ -37,11 +32,10 @@
 //       document.removeEventListener("mousedown", handler);
 //     };
 //   });
-//   return (
-//     <div>
- 
 
-//  <div className="red-rectangle">
+//   return (
+//     <>
+//       <div className="red-rectangle">
 //         <p className="heading-red-rectangle">
 //           World’s Fastest Growing Hotel Chain
 //         </p>
@@ -109,7 +103,8 @@
 //           <button onClick={handleLinkClick}>Search</button>
 //         </div>
 //       </div>
-
-//     </div>
-//   )
+//     </>
+//   );
 // }
+
+// export default SearchField;

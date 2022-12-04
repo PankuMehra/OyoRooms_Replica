@@ -1,5 +1,15 @@
+*{
+  margin:0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+  font-family: sans-serif;
+}
+body{
+  margin:0;
+  padding:0;
 }
 
 .App-logo {
@@ -35,4 +45,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+.abk-input{
+  display: flex;
 }

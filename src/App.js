@@ -6,6 +6,10 @@ import Navbarfunction from './Components/HomePage/Navbarfunction';
 import BelowNavbar from './Components/HomePage/BelowNavbar';
 import Footer from './Components/HomePage/Footer/Footer';
 import World from './Components/HomePage/Worldwide/World';
+import HomeSearch from './Components/HomePage/HomeSearch';
+import Search from './Components/HomePage/Search';
+import SearchField from './Components/HomePage/SearchField';
+
 
 
 
@@ -16,10 +20,15 @@ function App() {
     <div className="App">
      <Navbar1/>
      <Navbar2/>
-     <BelowNavbar/>
-     <World/>
-     {/* <CheckInOut/> */}
+     <HomeSearch/>
+     {/* <Search/> */}
      {/* <SearchField/> */}
+    
+
+     <BelowNavbar/>
+    
+     <World/>
+   
    
      
      <Footer/>

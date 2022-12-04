@@ -1,0 +1,12 @@
+.flex_direction{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.input{
+    height: 5vh;
+    width: 17vw;
+font-size: large;
+font-weight: bold;
+text-decoration: none;
+}
