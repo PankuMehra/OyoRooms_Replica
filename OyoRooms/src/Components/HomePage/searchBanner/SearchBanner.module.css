@@ -14,7 +14,7 @@
   position: absolute;
   z-index: -1;
 }
-.suggestion-item{
+.suggestion-item {
   width: 300px;
   height: 20px;
 }
@@ -134,6 +134,9 @@
   text-align: center;
   border-bottom: 1px solid #eee;
   margin: 0 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 #operator {
   border: 1px solid #b5b5b5;
@@ -162,4 +165,10 @@
   font-weight: 600;
   text-transform: capitalize;
   cursor: pointer;
+}
+.justify-content-around {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around !important;
+  border: 2px solid red !important; 
 }

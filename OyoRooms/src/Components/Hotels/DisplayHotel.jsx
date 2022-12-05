@@ -15,7 +15,7 @@ import WifiIcon from "@mui/icons-material/Wifi";
 import CameraswitchIcon from "@mui/icons-material/Cameraswitch";
 import ElevatorIcon from "@mui/icons-material/Elevator";
 import Stack from "@mui/material/Stack";
-import Footer from "../HomePage/Footer/Footer"
+import Footer from "../HomePage/Footer/Footer";
 
 import { getHotelRooms } from "./api";
 import Navbar1 from "../HomePage/Navbar1";
@@ -236,11 +236,11 @@ function HotelItem({
                     }}
                   >
                     <Link
-                      to={`/oyorooms/${city}/${id}`}
+                      to={`/hotels/${id}`}
                       style={{
                         textDecoration: "none",
                         color: "white",
-                        fontWeight: "900",
+                        fontWeight: "600",
                       }}
                     >
                       Book Now
@@ -280,19 +280,15 @@ function DisplayHotel() {
   //     setMail(event.target.value);
   //   };
 
-  const prevPage= ()=>{
-
+  const prevPage = () => {
     page.current--;
-    getHotelRooms(currentCity,page.current, dispatch);
-  }
+    getHotelRooms(currentCity, page.current, dispatch);
+  };
 
-  const nextPage= ()=>{
-
+  const nextPage = () => {
     page.current++;
-    getHotelRooms(currentCity,page.current, dispatch);
-  }
-
-
+    getHotelRooms(currentCity, page.current, dispatch);
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -320,7 +316,7 @@ function DisplayHotel() {
 
   useEffect(() => {
     //   dispatch();
-    getHotelRooms(currentCity,page.current, dispatch);
+    getHotelRooms(currentCity, page.current, dispatch);
   }, []);
 
   const handleSortBy = (e) => {
@@ -986,43 +982,43 @@ function DisplayHotel() {
               ))}
           </div>
           {/* <hr style={{ border: ".2px solid rgb(224,224,224)" }} /> */}
-           
-           <div style={{display:"flex",marginTop:"-180px",marginLeft:"40%",}}>
-            
-           <div style={{ margin: "20px" }}>
-            <Button
-              variant="outlined"
-              onClick={prevPage}
-              
-              disabled={page.current==0? true : false}
-              style={{
-                background: "red",
-                color: "white",
-                border: "none",
-                fontWeight:"900",
-                marginBottom:"20px"
-              }}
-            >
-             Prev
-            </Button>
+
+          <div
+            style={{ display: "flex", marginTop: "-180px", marginLeft: "40%" }}
+          >
+            <div style={{ margin: "20px" }}>
+              <Button
+                variant="outlined"
+                onClick={prevPage}
+                disabled={page.current == 0 ? true : false}
+                style={{
+                  background: "red",
+                  color: "white",
+                  border: "none",
+                  fontWeight: "900",
+                  marginBottom: "20px",
+                }}
+              >
+                Prev
+              </Button>
+            </div>
+            <div style={{ margin: "20px" }}>
+              <Button
+                variant="outlined"
+                onClick={nextPage}
+                disabled={page.current == 4 ? true : false}
+                style={{
+                  background: "red",
+                  color: "white",
+                  border: "none",
+                  fontWeight: "900",
+                  marginBottom: "20px",
+                }}
+              >
+                Next
+              </Button>
+            </div>
           </div>
-          <div style={{ margin: "20px" }}>
-            <Button
-              variant="outlined"
-              onClick={nextPage}
-              disabled={page.current==4? true : false}
-              style={{
-                background: "red",
-                color: "white",
-                border: "none",
-                fontWeight:"900",
-                marginBottom:"20px"
-              }}
-            >
-             Next
-            </Button>
-          </div>
-</div>
           {/* {isLoading && <Skeleton
               animation="wave"
               height="800px"
@@ -1089,7 +1085,7 @@ function DisplayHotel() {
  */}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
