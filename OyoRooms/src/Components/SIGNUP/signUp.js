@@ -16,6 +16,7 @@ import { LogInNav } from "../LOGIN_NAVBAR/logInNavbar";
 import "./common.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { URL } from "../../URL";
 // import GoogleButton from "react-google-button";
 // import { LogedIn } from "../Google Login/googleLogin";
 // import { gapi } from "gapi-script";
@@ -50,7 +51,7 @@ export const SignUp = () => {
   // });
   console.log(userData);
   const getUserData = async () => {
-    const result = await axios.get("https://oyo-data.onrender.com/users");
+    const result = await axios.get(`${URL.users}`);
     setUserData(result.data);
     console.log(result.data);
   };
@@ -108,10 +109,7 @@ export const SignUp = () => {
     });
     console.log(userData);
     // send data to backend for register new user
-    const result = await axios.post(
-      "https://oyo-data.onrender.com/users",
-      inputFieldData
-    );
+    const result = await axios.post(`${URL.users}`, inputFieldData);
 
     setTimeout(() => {
       navigate("/login");
@@ -150,7 +148,7 @@ export const SignUp = () => {
               </h2>
               <TextField
                 onChange={(e) => handleChangeInputField(e)}
-                size="small"
+                // size="small"
                 margin="normal"
                 padding="0"
                 label="Name"
@@ -160,7 +158,7 @@ export const SignUp = () => {
               />{" "}
               <TextField
                 onChange={(e) => handleChangeInputField(e)}
-                size="small"
+                // size="small"
                 margin="normal"
                 padding="0"
                 label="Email"
@@ -175,7 +173,7 @@ export const SignUp = () => {
               </p> */}
               <TextField
                 onChange={(e) => handleChangeInputField(e)}
-                size="small"
+                // size="small"
                 margin="normal"
                 label="Password"
                 placeholder="Enter Password"
@@ -197,18 +195,19 @@ export const SignUp = () => {
                 }}
               />{" "}
               <Button
-                disabled={email === "" ? true : false}
+                disabled={password.length < 8 ? true : false}
                 onClick={(e) => sendDataToBackend(e)}
                 variant="contained"
                 // color="warning"
+                id="SignupButton"
                 margin="normal"
                 sx={{
                   backgroundColor: "#1ab64f",
                   width: "200px",
                   m: "auto",
                   p: "10px",
-                  mt: "10px",
-                  mb: "10px",
+                  mt: "20px",
+                  mb: "15px",
                 }}
               >
                 Register

@@ -13,6 +13,7 @@ function HomePage() {
       <Navbar2 />
       <SearchBanner />
       <BelowNavbar />
+      {/* <img src="/Images/homeWorld.jpg" alt="" /> */}
       <World />
       <Footer />
     </div>

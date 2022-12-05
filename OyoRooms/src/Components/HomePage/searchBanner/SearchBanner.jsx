@@ -130,7 +130,7 @@ class SearchBanner extends Component {
         return ele;
       }
     });
-    console.log(elem);
+    // console.log(elem);
   };
   render() {
     let { showrooms, roomCount, guestCount, inputStart, inputFinish } =

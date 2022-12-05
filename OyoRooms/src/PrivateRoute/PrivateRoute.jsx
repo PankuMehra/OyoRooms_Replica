@@ -4,10 +4,10 @@ import { Navigate } from 'react-router-dom'
 
 const PrivateRoute = ({children}) => {
 
-  let currentUser
+  let isAuth = JSON.parse(localStorage.getItem("isAuth")) || false;
 
   return (
-    false ? children : <Navigate to="/login" />
+    isAuth ? children : <Navigate to="/login" />
   )
 }
 
