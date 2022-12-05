@@ -189,9 +189,13 @@ function DisplayHotel() {
   const [filterBy, setFilterBy] = useState("");
   const [mail, setMail] = useState("e.g. abc@gmail.com");
 
-  //   const handleMailChange = (event) => {
-  //     setMail(event.target.value);
-  //   };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
+
+    // const handleMailChange = (event) => {
+    //   setMail(event.target.value);
+    // };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -199,10 +203,10 @@ function DisplayHotel() {
     setEnd(newValue[1] * 100);
   };
 
-  //   let { hotelDataArray, isLoading, isError } = useSelector(
-  //     (state) => state.app,
-  //     shallowEqual
-  //   );
+    // let { hoteldata, isLoading, isError } = useSelector(
+    //   (state) => state.app,
+    //   shallowEqual
+    // );
   const dispatch = useDispatch();
 
   const hoteldata = useSelector((state) => {
@@ -220,26 +224,26 @@ getHotelRooms("Mumbai",dispatch )
     setSortBy(e.target.value);
   };
 
-  //   switch (sortBy) {
-  //     case "rating": {
-  //       hotelDataArray.sort((a, b) => a.rating - b.rating);
-  //       break;
-  //     }
-  //     case "lowtohigh": {
-  //       hotelDataArray.sort((a, b) => a.price - b.price);
-  //       break;
-  //     }
-  //     case "hightolow": {
-  //       hotelDataArray.sort((a, b) => b.price - a.price);
-  //       break;
-  //     }
-  //     case "popularity": {
-  //       hotelDataArray.sort((a, b) => a.popularity - b.popularity);
-  //       break;
-  //     }
-  //     default:
-  //       return hotelDataArray;
-  //   }
+    switch (sortBy) {
+      case "rating": {
+        hoteldata.sort((a, b) => a.rating - b.rating);
+        break;
+      }
+      case "lowtohigh": {
+        hoteldata.sort((a, b) => a.price - b.price);
+        break;
+      }
+      case "hightolow": {
+        hoteldata.sort((a, b) => b.price - a.price);
+        break;
+      }
+      case "popularity": {
+        hoteldata.sort((a, b) => a.popularity - b.popularity);
+        break;
+      }
+      default:
+        return hoteldata;
+    }
   const handleFilterClick = (e) => {
     setFilterBy(e.target.textContent);
     // console.log(filterBy);
