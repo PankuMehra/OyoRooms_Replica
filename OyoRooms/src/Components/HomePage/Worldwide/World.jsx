@@ -31,9 +31,9 @@ export default function World() {
     <div>
       <div className="world-wide">
         <div>
-          <div>
+          {/* <div> */}
             <img
-              src="/Images/landing background map.png"
+              src="/Images/map.png"
               alt="landing background map"
             />
             {uae ? <div className="uaeDiv">UAE</div> : null}
@@ -96,10 +96,10 @@ export default function World() {
                 setindo(false);
               }}
             />
-          </div>
+          {/* </div> */}
         </div>
         <div className="world-wide-right-section">
-          <p>World’s leading chain of hotels and homes</p>
+          {/* <p>World’s leading chain of hotels and homes</p>
           <p>More Destinations. More Ease. More Affordable.</p>
           <div>
             <p>
@@ -119,7 +119,8 @@ export default function World() {
             <li>Indonesia</li>
              <li>Malaysia</li>
             <li>UAE</li>
-          </ul>
+          </ul> */}
+          <img style={{height: "100%"}} src="/Images/homeWorld.jpg" alt="" />
         </div>
       </div>
     </div>

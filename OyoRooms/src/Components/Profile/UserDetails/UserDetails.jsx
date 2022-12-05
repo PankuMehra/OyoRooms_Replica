@@ -12,15 +12,24 @@ import {
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { UserAction } from "../../../Action/UserAction";
+import { URL } from "../../../URL";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { HiOutlinePencilAlt } from "react-icons/hi";
+import { useState } from "react";
 
 const UserDetails = () => {
   const [userShow, setUserShow] = React.useState(false);
   const [password, setPassword] = React.useState(false);
   const [show, setShow] = React.useState(false);
-  const userData = useSelector((storeData) => {
-    return storeData.UserReducer.userData;
+  const [myPass, setMyPass] = useState({
+    newPass: null,
+    newPass2: "",
   });
-  console.log(userData.name);
+  const userData =
+    useSelector((storeData) => {
+      return storeData.UserReducer.userData;
+    }) || [];
   const userDispatch = useDispatch();
 
   const handleClick = () => {
@@ -36,12 +45,13 @@ const UserDetails = () => {
 
   React.useEffect(() => {
     {
-      userData.length > 0 ? "" : getUserDetails();
+      userData ? getUserDetails() : "";
     }
   }, []);
   const getUserDetails = async () => {
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    let res = await fetch(`https://oyo-data.onrender.com/users/${currentUser}`);
+    let res = await fetch(`${URL.users}/${currentUser}`);
+
     let data = await res.json();
     UserAction(data, userDispatch);
   };
@@ -54,41 +64,54 @@ const UserDetails = () => {
       email: emailRef.current.value + "@gmail.com",
     };
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    let res = await fetch(
-      `https://oyo-data.onrender.com/users/${currentUser}`,
-      {
-        method: "PATCH",
-        body: JSON.stringify(updatedUser),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let res = await fetch(`${URL.users}/${currentUser}`, {
+      method: "PATCH",
+      body: JSON.stringify(updatedUser),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     let data = await res.json();
     UserAction(data, userDispatch);
-    // console.log(userData)
     setUserShow(!userShow);
   };
 
   let passRef = React.useRef(null);
   const updatePass = async () => {
     let updatedUser = {
-      password: passRef.current.value,
+      password: myPass.newPass2,
     };
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    let res = await fetch(
-      `https://oyo-data.onrender.com/users/${currentUser}`,
-      {
+    let oldRes = await fetch(`${URL.users}/${currentUser}`);
+    let oldData = await oldRes.json();
+    if (oldData.password == passRef.current.value) {
+      let res = await fetch(`${URL.users}/${currentUser}`, {
         method: "PATCH",
         body: JSON.stringify(updatedUser),
         headers: {
           "Content-Type": "application/json",
         },
-      }
-    );
-    let data = await res.json();
-    UserAction(data, userDispatch);
-    setPassword(!password);
+      });
+      let data = await res.json();
+      // console.log('data:', data)
+      UserAction(data, userDispatch);
+      setPassword(!password);
+      toast.success("Password Sucessfully updated", {
+        position: "top-center",
+        theme: "colored",
+      });
+    } else {
+      toast.info("Old Password is Wrong", {
+        position: "top-center",
+        theme: "dark",
+      });
+    }
+    // }
+  };
+
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setMyPass({ ...myPass, [name]: value });
   };
 
   return (
@@ -107,7 +130,7 @@ const UserDetails = () => {
         <Heading fontSize="26px" marginBottom="30px" color="#222222">
           Edit profile{" "}
           <button onClick={changeUserDetails}>
-            <i className="fa-regular fa-pen-to-square"></i>
+            <HiOutlinePencilAlt />
           </button>
         </Heading>
         <Box>
@@ -116,7 +139,7 @@ const UserDetails = () => {
           </strong>
           {userShow ? (
             <Input
-              htmlSize={7}
+              htmlSize={8}
               width="auto"
               placeholder="Enter Name"
               ref={nameRef}
@@ -175,7 +198,7 @@ const UserDetails = () => {
         <Heading fontSize="26px" marginBottom="30px" color="#222222">
           Change Password{" "}
           <button onClick={changeUserPass}>
-            <i className="fa-regular fa-pen-to-square"></i>
+            <HiOutlinePencilAlt />
           </button>
         </Heading>
         <Box>
@@ -190,7 +213,7 @@ const UserDetails = () => {
               </span>
             )}
           </strong>
-          
+
           {password ? (
             <Box>
               <InputGroup size="md" marginBottom="15px">
@@ -198,6 +221,7 @@ const UserDetails = () => {
                   pr="4.5rem"
                   type="text"
                   placeholder="Enter Current Password"
+                  ref={passRef}
                 />
               </InputGroup>
               <InputGroup size="md" marginBottom="15px">
@@ -205,6 +229,9 @@ const UserDetails = () => {
                   pr="4.5rem"
                   type="text"
                   placeholder="Enter New Password"
+                  // ref={newPassRef}
+                  name="newPass"
+                  onChange={handleChange}
                 />
               </InputGroup>
               <InputGroup size="md">
@@ -212,7 +239,9 @@ const UserDetails = () => {
                   pr="4.5rem"
                   type={show ? "text" : "password"}
                   placeholder="Confirm New Password"
-                  ref={passRef}
+                  // ref={newPassRef2}
+                  name="newPass2"
+                  onChange={handleChange}
                 />
                 <InputRightElement width="4.5rem">
                   <Button h="1.75rem" size="sm" onClick={handleClick}>
@@ -232,6 +261,7 @@ const UserDetails = () => {
             // float="right"
             marginTop="30px"
             onClick={updatePass}
+            disabled={myPass.newPass === myPass.newPass2 ? false : true}
           >
             Update
           </Button>
@@ -239,6 +269,7 @@ const UserDetails = () => {
           ""
         )}
       </Box>
+      <ToastContainer />
     </div>
   );
 };

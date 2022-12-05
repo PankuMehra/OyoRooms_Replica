@@ -8,8 +8,9 @@
     background: #f4fcfe;
     width: 100%;
     display: flex;
+    background-color: #f4f5f7;
     /* margin-left: 50px; */
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
     /* border: 2px solid red; */
     position: relative;
   }
@@ -134,7 +135,7 @@
     left: 400px;
   }
   .world-wide-right-section {
-    padding: 50px 120px;
+    /* padding: 50px 120px; */
     text-align: left;
     overflow: hidden;
   }
