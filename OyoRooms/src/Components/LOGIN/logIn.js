@@ -9,6 +9,9 @@ import { useEffect, useState } from "react";
 import { LogInNav } from "../LOGIN_NAVBAR/logInNavbar";
 import "../SIGNUP/common.css";
 import { Link } from "react-router-dom";
+import { URL } from "../../URL";
+import "./Login.css";
+import { useNavigate } from "react-router-dom";
 export const LogIn = () => {
   const [state, setState] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
@@ -26,7 +29,7 @@ export const LogIn = () => {
 
   const getData = async () => {
     try {
-      const res = await axios.get("https://oyo-data.onrender.com/users");
+      const res = await axios.get(`${URL.users}`);
       setState(res.data);
     } catch (error) {
       console.log("Something Error");
@@ -43,6 +46,7 @@ export const LogIn = () => {
   };
 
   var flag = false;
+  const navigate = useNavigate();
   function logIn() {
     for (let i = 0; i < state.length; i++) {
       // console.log(state[0].email);
@@ -51,8 +55,9 @@ export const LogIn = () => {
         state[i].password === register.password
       ) {
         flag = true;
-        // localStorage.setItem("Acess",JSON.stringify(state[i]))
-        localStorage.setItem("accessToken", state[i].id);
+        localStorage.setItem("currentUser", state[i].id);
+        localStorage.setItem("isAuth", true);
+        navigate("/");
       }
     }
     if (flag === true) {
@@ -99,13 +104,16 @@ export const LogIn = () => {
             <p>Sign up & Get ₹500 OYO Money</p>
           </div>
           <form>
-            <div
-              id="sl-form-div"
-              style={{ height: "320px", paddingBottom: "50px" }}
-            >
-              <Typography variant="h4" sx={{ mb: "20px", mt: "20px" }}>
+            <div id="sl-form-div" style={{ paddingBottom: "20px 10px" }}>
+              <h2
+                style={{
+                  fontWeight: "600",
+                  marginTop: "15px",
+                  marginBottom: "10px",
+                }}
+              >
                 Login / Signup
-              </Typography>
+              </h2>
               <TextField
                 onChange={(e) => getInputFieldData(e)}
                 size="small"
@@ -143,18 +151,22 @@ export const LogIn = () => {
                 variant="contained"
                 color="secondary"
                 margin="normal"
+                id="LoginButton"
                 sx={{
+                  backgroundColor: "#1ab64f",
                   width: "200px",
                   m: "auto",
                   p: "10px",
+                  mt: "20px",
+                  mb: "20px",
                 }}
               >
-                Register
+                Login
               </Button>
               <p>
                 Don't have an Account ?{" "}
                 <Link
-                  to="/"
+                  to="/signup"
                   style={{
                     textDecoration: "none",
                     fontWeight: "bold",

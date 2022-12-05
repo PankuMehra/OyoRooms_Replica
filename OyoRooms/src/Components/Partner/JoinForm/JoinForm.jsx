@@ -20,6 +20,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { HotelAction } from "../../../Action/HotelAction";
 import {useNavigate} from 'react-router-dom'
+import {URL} from "../../../URL"
 
 const initData = {
   hotelName: "",
@@ -202,7 +203,7 @@ export function JoinForm() {
     return store.UserReducer.hotelData;
   });
   const saveHotelDetails = async () => {
-    let res = await fetch("https://oyo-data.onrender.com/hotel", {
+    let res = await fetch(`${URL.hotel}`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

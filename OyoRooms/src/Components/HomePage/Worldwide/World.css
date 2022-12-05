@@ -8,15 +8,18 @@
     background: #f4fcfe;
     width: 100%;
     display: flex;
+    background-color: #f4f5f7;
     /* margin-left: 50px; */
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
+    /* border: 2px solid red; */
+    position: relative;
   }
   .uae {
     position: absolute;
     width: 108px;
     height: 126px;
     left: 130px;
-    top: 610px;
+    top: 110px;
     cursor: pointer;
   }
   .uaeDiv {
@@ -28,7 +31,7 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 730px;
+    top: 230px;
     left: 150px;
   }
   .nepal {
@@ -36,7 +39,7 @@
     width: 108px;
     height: 126px;
     left: 280px;
-    top: 580px;
+    top: 80px;
     cursor: pointer;
   }
   .nepalDiv {
@@ -48,7 +51,7 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 680px;
+    top: 180px;
     left: 300px;
   }
   .china {
@@ -56,7 +59,7 @@
     width: 108px;
     height: 126px;
     left: 440px;
-    top: 550px;
+    top: 50px;
     cursor: pointer;
   }
   .chinaDiv {
@@ -68,7 +71,7 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 665px;
+    top: 165px;
     left: 465px;
   }
   .india {
@@ -76,7 +79,7 @@
     width: 108px;
     height: 126px;
     left: 250px;
-    top: 730px;
+    top: 230px;
     cursor: pointer;
   }
   .indiaDiv {
@@ -88,7 +91,7 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 850px;
+    top: 350px;
     left: 280px;
   }
   .malayasia {
@@ -96,7 +99,7 @@
     width: 150px;
     height: 100px;
     left: 420px;
-    top: 700px;
+    top: 200px;
     cursor: pointer;
   }
   .malayasiaDiv {
@@ -108,7 +111,7 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 800px;
+    top: 300px;
     left: 500px;
   }
   .indonesia {
@@ -116,7 +119,7 @@
     width: 106px;
     height: 136px;
     left: 380px;
-    top: 800px;
+    top: 300px;
     cursor: pointer;
   }
   .indoDiv {
@@ -128,11 +131,11 @@
     height: 30px;
     font-size: 20px;
     background-color: white;
-    top: 950px;
+    top: 450px;
     left: 400px;
   }
   .world-wide-right-section {
-    padding: 50px 120px;
+    /* padding: 50px 120px; */
     text-align: left;
     overflow: hidden;
   }

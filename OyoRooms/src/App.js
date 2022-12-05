@@ -7,11 +7,15 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import { LogIn } from "./Components/LOGIN/logIn";
 import { SignUp } from "./Components/SIGNUP/signUp";
 import DisplayHotel from "./Components/Hotels/DisplayHotel";
+import Checkout from "./Components/Checkout/Checkout";
+import Payment from "./Components/Payment/Payment";
+import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
         <Route
@@ -24,7 +28,22 @@ function App() {
         />
         <Route path="/hotels" element={<DisplayHotel />} />
         <Route path="/partner" element={<Partner />} />
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/checkout"
+          element={
+            <ChakraProvider>
+              <Checkout />
+            </ChakraProvider>
+          }
+        />
+        <Route
+          path="/payment"
+          element={
+            <ChakraProvider>
+              <Payment />
+            </ChakraProvider>
+          }
+        />
       </Routes>
     </div>
   );

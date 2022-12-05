@@ -1,6 +1,7 @@
 let initData = {
   userData: [],
   hotelData: [],
+  LoggedIn: {}
 };
 
 export const UserReducer = (storeData = initData, action) => {
@@ -15,6 +16,12 @@ export const UserReducer = (storeData = initData, action) => {
       return {
         ...storeData,
         hotelData: action.payload,
+      };
+    }
+    case "check-login": {
+      return {
+        ...storeData,
+        LoggedIn: action.payload,
       };
     }
 
