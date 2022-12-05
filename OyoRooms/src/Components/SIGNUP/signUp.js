@@ -148,7 +148,7 @@ export const SignUp = () => {
               </h2>
               <TextField
                 onChange={(e) => handleChangeInputField(e)}
-                // size="small"
+                size="small"
                 margin="normal"
                 padding="0"
                 label="Name"
@@ -158,7 +158,7 @@ export const SignUp = () => {
               />{" "}
               <TextField
                 onChange={(e) => handleChangeInputField(e)}
-                // size="small"
+                size="small"
                 margin="normal"
                 padding="0"
                 label="Email"
@@ -173,7 +173,7 @@ export const SignUp = () => {
               </p> */}
               <TextField
                 onChange={(e) => handleChangeInputField(e)}
-                // size="small"
+                size="small"
                 margin="normal"
                 label="Password"
                 placeholder="Enter Password"

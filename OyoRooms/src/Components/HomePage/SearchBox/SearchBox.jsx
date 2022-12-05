@@ -8,6 +8,7 @@ import PlacesAutocomplete, {
   geocodeByPlaceId,
   getLatLng,
 } from "react-places-autocomplete";
+import { useNavigate } from "react-router-dom";
 import styles from "../searchBanner/SearchBanner.module.css";
 // import { saveData } from "../../redux/authentication/localStorage";
 
@@ -20,7 +21,7 @@ const AutocompleteForm = () => {
 
   const handleSelect = (address) => {
     setAddress(address);
-    saveData("address", address);
+    saveData("currentCity", address);
     const data = geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => {
@@ -30,8 +31,21 @@ const AutocompleteForm = () => {
       .catch((error) => console.error("Error", error));
     console.log(data);
   };
+  let ref = "";
+  let navigate = useNavigate();
   const saveData = (key, data) => {
-    localStorage.setItem(key, JSON.stringify(data));
+    // for(let i = 0; i<data.length; i++){
+
+    // }
+    for (let index = 0; index < data.length; index++) {
+      if(data.charAt(index) === " " || data.charAt(index) === ','){
+        break;
+      }
+      ref += data.charAt(index);
+      console.log(ref);
+    }
+    localStorage.setItem(key, ref);
+    navigate("/hotels")
   };
   //   return <div>sdlfiwjeds</div>
   return (
@@ -85,10 +99,10 @@ const AutocompleteForm = () => {
                     };
                 return (
                   <div
-                    // {...getSuggestionItemProps(suggestion, {
-                    //   className,
-                    //   style,
-                    // })}
+                    {...getSuggestionItemProps(suggestion, {
+                      className,
+                      style,
+                    })}
                   >
                     <span>
                       <span className="pr-2">

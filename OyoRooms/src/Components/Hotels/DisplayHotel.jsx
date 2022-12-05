@@ -15,8 +15,9 @@ import WifiIcon from "@mui/icons-material/Wifi";
 import CameraswitchIcon from "@mui/icons-material/Cameraswitch";
 import ElevatorIcon from "@mui/icons-material/Elevator";
 import Stack from "@mui/material/Stack";
-import { getHotelRooms } from "../../Action/HotelActionGet";
-import Footer from "../HomePage/Footer/Footer";
+
+import { getHotelRooms } from "./api";
+import Navbar1 from "../HomePage/Navbar1";
 // console.log(getHotelRooms);
 function HotelItem({
   hotelName,
@@ -38,12 +39,36 @@ function HotelItem({
       <div style={{ display: "flex", justifyContent: "left" }}>
         <div style={{ display: "flex" }}>
           <div style={{ marginBottom: "10%  " }}>
-            <img src={mainImage} alt="img" height="400px" width="96%" />
+            <img
+              src={mainImage}
+              alt="img"
+              height="400px"
+              width="96%"
+              style={{ objectFit: "cover" }}
+            />
           </div>
           <div style={{ width: "10%" }}>
-            <img src={image1} alt="img" height="112px" width="125px" />
-            <img src={image2} alt="img" height="112px" width="125px" />
-            <img src={image3} alt="img" height="112px" width="125px" />
+            <img
+              src={image1}
+              alt="img"
+              height="112px"
+              width="125px"
+              style={{ objectFit: "cover" }}
+            />
+            <img
+              src={image2}
+              alt="img"
+              height="112px"
+              width="125px"
+              style={{ objectFit: "cover" }}
+            />
+            <img
+              src={image3}
+              alt="img"
+              height="112px"
+              width="125px"
+              style={{ objectFit: "cover" }}
+            />
             {/* <img src={image4} alt="img" height="112px" width="125px" /> */}
           </div>
           <div style={{ marginLeft: "40px", textAlign: "left" }}>
@@ -192,6 +217,10 @@ function DisplayHotel() {
   const [sortBy, setSortBy] = React.useState("popularity");
   const [filterBy, setFilterBy] = useState("");
   const [mail, setMail] = useState("e.g. abc@gmail.com");
+  const hoteldata = useSelector((state) => {
+    return state.Reducer.hotelDataArray;
+  });
+  let currentCity = localStorage.getItem("currentCity") || "Mumbai";
 
   //   const handleMailChange = (event) => {
   //     setMail(event.target.value);
@@ -199,9 +228,19 @@ function DisplayHotel() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    // let x = newValue[0] * 1000;
     setStart(newValue[0] * 100);
     setEnd(newValue[1] * 100);
+    hoteldata.filter((elem) => {
+      return elem.price > start;
+    });
+    // JSON.parse(localStorage.getItem("currentCity"));
+    getHotelRooms(currentCity, dispatch);
+    console.log("hoteldata:", hoteldata);
+    // console.log('new:', new);
   };
+  // console.log(start);
+  // console.log(end);
 
   //   let { hotelDataArray, isLoading, isError } = useSelector(
   //     (state) => state.app,
@@ -209,39 +248,37 @@ function DisplayHotel() {
   //   );
   const dispatch = useDispatch();
 
-  const hoteldata = useSelector((state) => {
-    return state.Reducer.hotelDataArray;
-  });
   console.log(hoteldata);
 
   useEffect(() => {
-    getHotelRooms("Mumbai", dispatch);
+    //   dispatch();
+    getHotelRooms(currentCity, dispatch);
   }, []);
 
   const handleSortBy = (e) => {
     setSortBy(e.target.value);
   };
 
-  //   switch (sortBy) {
-  //     case "rating": {
-  //       hotelDataArray.sort((a, b) => a.rating - b.rating);
-  //       break;
-  //     }
-  //     case "lowtohigh": {
-  //       hotelDataArray.sort((a, b) => a.price - b.price);
-  //       break;
-  //     }
-  //     case "hightolow": {
-  //       hotelDataArray.sort((a, b) => b.price - a.price);
-  //       break;
-  //     }
-  //     case "popularity": {
-  //       hotelDataArray.sort((a, b) => a.popularity - b.popularity);
-  //       break;
-  //     }
-  //     default:
-  //       return hotelDataArray;
-  //   }
+  switch (sortBy) {
+    case "rating": {
+      hoteldata.sort((a, b) => a.rating - b.rating);
+      break;
+    }
+    case "lowtohigh": {
+      hoteldata.sort((a, b) => a.price - b.price);
+      break;
+    }
+    case "hightolow": {
+      hoteldata.sort((a, b) => b.price - a.price);
+      break;
+    }
+    case "popularity": {
+      hoteldata.sort((a, b) => a.popularity - b.popularity);
+      break;
+    }
+    default:
+      return hoteldata;
+  }
   const handleFilterClick = (e) => {
     setFilterBy(e.target.textContent);
     // console.log(filterBy);
@@ -249,6 +286,7 @@ function DisplayHotel() {
 
   return (
     <div>
+      <Navbar1 />
       <div
         style={{
           background: "rgb(222,150,64)",
@@ -915,7 +953,7 @@ function DisplayHotel() {
           >
             <div>
               <span style={{ fontSize: "21px", fontWeight: "700" }}>
-                258 OYOs in India
+                Hotels in {currentCity}
               </span>
               <span style={{ marginLeft: "350px" }}> Map View </span>
               <span style={{ marginLeft: "8px" }}>
@@ -1051,7 +1089,6 @@ function DisplayHotel() {
  */}
         </div>
       </div>
-      <footer />
     </div>
   );
 }
