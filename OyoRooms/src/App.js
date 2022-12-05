@@ -10,6 +10,7 @@ import DisplayHotel from "./Components/Hotels/DisplayHotel";
 import Checkout from "./Components/Checkout/Checkout";
 import Payment from "./Components/Payment/Payment";
 import { ChakraProvider } from "@chakra-ui/react";
+import HotelDesc from "./Components/HotelDesc/HotelDesc";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           }
         />
         <Route path="/hotels" element={<DisplayHotel />} />
+        <Route path="/hotels/:id" element={<HotelDesc />} />
         <Route path="/partner" element={<Partner />} />
         <Route
           path="/checkout"

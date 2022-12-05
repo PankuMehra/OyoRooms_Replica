@@ -37,7 +37,7 @@ export default function Navbar1() {
   };
 
   return (
-    <div>
+    <div style={{position: "sticky", top: "0px", zIndex: "100000", backgroundColor: "white"}}>
       <div className="mainNav">
         <Link to="/" className="abk-leftnav">
           <img src="/Images/oyologo.png" alt="oyored" />

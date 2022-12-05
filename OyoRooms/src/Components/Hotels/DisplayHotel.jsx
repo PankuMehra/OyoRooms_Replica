@@ -175,7 +175,7 @@ function HotelItem({
                     style={{ color: "balck", border: "1px solid black" }}
                   >
                     <Link
-                      to={`/oyorooms/${city}/${id}`}
+                      to={`/hotels/${id}`}
                       style={{ textDecoration: "none", color: "black" }}
                     >
                       View Details
