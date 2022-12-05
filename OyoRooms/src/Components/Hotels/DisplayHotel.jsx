@@ -15,6 +15,7 @@ import WifiIcon from "@mui/icons-material/Wifi";
 import CameraswitchIcon from "@mui/icons-material/Cameraswitch";
 import ElevatorIcon from "@mui/icons-material/Elevator";
 import Stack from "@mui/material/Stack";
+import Footer from "../HomePage/Footer/Footer"
 
 import { getHotelRooms } from "./api";
 import Navbar1 from "../HomePage/Navbar1";
@@ -273,6 +274,7 @@ function DisplayHotel() {
   const [sortBy, setSortBy] = React.useState("popularity");
   const [filterBy, setFilterBy] = useState("");
   const [mail, setMail] = useState("e.g. abc@gmail.com");
+  let page = React.useRef(1);
   const hoteldata = useSelector((state) => {
     return state.Reducer.hotelDataArray;
   });
@@ -281,6 +283,20 @@ function DisplayHotel() {
   //   const handleMailChange = (event) => {
   //     setMail(event.target.value);
   //   };
+
+  const prevPage= ()=>{
+
+    page.current--;
+    getHotelRooms(currentCity,page.current, dispatch);
+  }
+
+  const nextPage= ()=>{
+
+    page.current++;
+    getHotelRooms(currentCity,page.current, dispatch);
+  }
+
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -308,7 +324,7 @@ function DisplayHotel() {
 
   useEffect(() => {
     //   dispatch();
-    getHotelRooms(currentCity, dispatch);
+    getHotelRooms(currentCity,page.current, dispatch);
   }, []);
 
   const handleSortBy = (e) => {
@@ -973,8 +989,44 @@ function DisplayHotel() {
                 <HotelItem key={item.id} {...item} />
               ))}
           </div>
-          <hr style={{ border: ".2px solid rgb(224,224,224)" }} />
-
+          {/* <hr style={{ border: ".2px solid rgb(224,224,224)" }} /> */}
+           
+           <div style={{display:"flex",marginTop:"-180px",marginLeft:"40%",}}>
+            
+           <div style={{ margin: "20px" }}>
+            <Button
+              variant="outlined"
+              onClick={prevPage}
+              
+              disabled={page.current==0? true : false}
+              style={{
+                background: "red",
+                color: "white",
+                border: "none",
+                fontWeight:"900",
+                marginBottom:"20px"
+              }}
+            >
+             Prev
+            </Button>
+          </div>
+          <div style={{ margin: "20px" }}>
+            <Button
+              variant="outlined"
+              onClick={nextPage}
+              disabled={page.current==4? true : false}
+              style={{
+                background: "red",
+                color: "white",
+                border: "none",
+                fontWeight:"900",
+                marginBottom:"20px"
+              }}
+            >
+             Next
+            </Button>
+          </div>
+</div>
           {/* {isLoading && <Skeleton
               animation="wave"
               height="800px"
@@ -1041,6 +1093,7 @@ function DisplayHotel() {
  */}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
