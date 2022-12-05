@@ -1,8 +1,11 @@
 import { URL } from "../../URL"
 
-export const getHotelRooms = (city, dispatch) => {
+export const getHotelRooms = (city, page,dispatch) => {
+  
+
   console.log(city)
-  let url = `${URL.hotel}?city=${city}`;
+  console.log(page)
+  let url = `${URL.hotel}?city=${city}&&_page=${page}&&_limit=4`;
   fetch(url)
     .then((res) => res.json())
     .then((res) => {
