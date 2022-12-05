@@ -219,12 +219,8 @@ function HotelItem({
                     }}
                   >
                     <Link
-                      to={`/oyorooms/${city}/${id}`}
-                      style={{
-                        textDecoration: "none",
-                        color: "black",
-                        fontWeight: "900",
-                      }}
+                      to={`/hotels/${id}`}
+                      style={{ textDecoration: "none", color: "black" }}
                     >
                       View Details
                     </Link>

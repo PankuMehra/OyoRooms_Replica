@@ -62,7 +62,7 @@ export default function Navbar2() {
 
       <div>
         <Navbarfunction
-          name="Gurgaon"
+          name="Gurugram"
           more={[
             "Popular Localities",
             "Huda City Center Metro",
