@@ -38,7 +38,7 @@ function HotelItem({
     <>
       <div style={{ display: "flex", justifyContent: "left" }}>
         <div style={{ display: "flex" }}>
-          <div style={{ marginBottom: "10%  " }}>
+          <div style={{ marginBottom: "5%  " }}>
             <img
               src={mainImage}
               alt="img"
@@ -47,88 +47,117 @@ function HotelItem({
               style={{ objectFit: "cover" }}
             />
           </div>
-          <div style={{ width: "10%" }}>
+          <div style={{ width: "10%", marginLeft: "-1%" }}>
             <img
               src={image1}
               alt="img"
-              height="112px"
-              width="125px"
+              height="100px"
+              width="100px"
               style={{ objectFit: "cover" }}
             />
             <img
               src={image2}
               alt="img"
-              height="112px"
-              width="125px"
+              height="100px"
+              width="100px"
               style={{ objectFit: "cover" }}
             />
             <img
               src={image3}
               alt="img"
-              height="112px"
-              width="125px"
+              height="100px"
+              width="100px"
               style={{ objectFit: "cover" }}
             />
-            {/* <img src={image4} alt="img" height="112px" width="125px" /> */}
+            <img
+              src={image4}
+              alt="img"
+              height="100px"
+              width="100px"
+              style={{ objectFit: "cover" }}
+            />
           </div>
-          <div style={{ marginLeft: "40px", textAlign: "left" }}>
+
+          <div style={{ marginLeft: "30px", textAlign: "left" }}>
             <div>
-              <span style={{ fontSize: "20px", fontWeight: "700" }}>
+              <span
+                style={{
+                  fontSize: "24px",
+                  fontWeight: "700",
+                  paddingBottom: "20px",
+                }}
+              >
                 {hotelName}
               </span>
             </div>
             <p>{address}</p>
             <div style={{ display: "flex" }}>
-              <div>
+              <div style={{ marginBottom: "10px", marginTop: "10px" }}>
                 <button
                   style={{
                     background: "rgb(82,181,32)",
                     color: "white",
                     border: "none",
                     borderRadius: "5px",
+                    padding: "0px 10px",
+                    marginRight: "20px",
                   }}
                 >
-                  {rating}★
+                  &nbsp; {rating}★
                 </button>
                 ({rating * 10} Ratings) .{rating > 4 ? "Very Good" : "Good"}
               </div>
             </div>
-            <div style={{ display: "flex" }}>
+            <div
+              style={{
+                display: "flex",
+                gap: "2rem",
+                marginBottom: "10px",
+                marginTop: "10px",
+              }}
+            >
               <div>
-                <p>🛏 AC</p>
+                <p>🛏 AC &nbsp;</p>
               </div>
               <div>
-                <p>🚘 Parking Facility</p>{" "}
+                <p>🚘 Parking Facility &nbsp;</p>{" "}
               </div>
               <div>
                 {" "}
-                <p>🙏 Reception</p>{" "}
+                <p>🙏 Reception &nbsp;</p>{" "}
               </div>
             </div>
-            <div style={{ display: "flex" }}>
+            <div
+              style={{
+                display: "flex",
+                gap: "2rem",
+                marginBottom: "10px",
+                marginTop: "10px",
+              }}
+            >
               <div>
                 <p>
-                  <WifiIcon /> Free Wifi
+                  <WifiIcon /> Free Wifi &nbsp;
                 </p>
               </div>
               <div>
-                <p>📺 TV</p>
+                <p>📺 TV &nbsp;</p>
               </div>
               <div>
                 <p>
-                  <CameraswitchIcon /> CCTV Camera
+                  <CameraswitchIcon /> CCTV Camera &nbsp;
                 </p>
               </div>
               <div>
                 <p>
-                  <ElevatorIcon /> Elevator
+                  <ElevatorIcon /> Elevator &nbsp;
                 </p>
               </div>
             </div>
-            <div style={{ display: "flex" }}>
-              <div>{rating > 4 ? "WIZARD MEMBER" : "Vaccinated Staff"}</div>
+            <div style={{ marginBottom: "20px", marginTop: "10px" }}>
+              <br />
             </div>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", gap: "2rem" }}>
               <div>
                 <div>
                   <p style={{ lineHeight: "5px" }}>
@@ -140,19 +169,26 @@ function HotelItem({
                         color: "rgb(238,42,35)",
                       }}
                     >
-                      ₹{price}
+                      ₹{price} &nbsp;
                     </span>
                     <span
                       style={{
                         textDecoration: "line-through",
-                        fontSize: "10px",
+                        fontSize: "12px",
                         lineHeight: "25px",
                         color: "rgb(180,186,188)",
                       }}
                     >
-                      ₹{strikedPrice}
+                      ₹{strikedPrice} &nbsp;
                     </span>
-                    <span style={{ color: "rgb(244,165,34)" }}>
+                    <span
+                      style={{
+                        color: "rgb(244,165,34)",
+                        paddingBottom: "10px",
+                        fontSize: "12px",
+                      }}
+                    >
+                      &nbsp;
                       {discount}% off
                     </span>
                   </p>
@@ -162,6 +198,8 @@ function HotelItem({
                     style={{
                       color: "rgb(163,169,172)",
                       fontSize: "12px",
+                      paddingBottom: "10px",
+                      paddingTop: "10px",
                     }}
                   >
                     per room per night
@@ -172,11 +210,20 @@ function HotelItem({
                 <Stack direction="row" spacing={2}>
                   <Button
                     variant="out"
-                    style={{ color: "balck", border: "1px solid black" }}
+                    style={{
+                      color: "black",
+                      border: "2px solid black",
+                      width: "120px",
+                      height: "60px",
+                    }}
                   >
                     <Link
                       to={`/oyorooms/${city}/${id}`}
-                      style={{ textDecoration: "none", color: "black" }}
+                      style={{
+                        textDecoration: "none",
+                        color: "black",
+                        fontWeight: "900",
+                      }}
                     >
                       View Details
                     </Link>
@@ -184,14 +231,20 @@ function HotelItem({
                   <Button
                     variant="out"
                     style={{
-                      border: "1px solid black",
+                      border: "2px solid black",
                       color: "white",
                       backgroundColor: "green",
+                      width: "120px",
+                      height: "60px",
                     }}
                   >
                     <Link
                       to={`/oyorooms/${city}/${id}`}
-                      style={{ textDecoration: "none", color: "white" }}
+                      style={{
+                        textDecoration: "none",
+                        color: "white",
+                        fontWeight: "900",
+                      }}
                     >
                       Book Now
                     </Link>
@@ -201,6 +254,9 @@ function HotelItem({
             </div>
           </div>
         </div>
+        <hr
+          style={{ border: ".5px solid rgb(224,224,224)", marginTop: "15px" }}
+        />
       </div>
     </>
   );
@@ -321,7 +377,7 @@ function DisplayHotel() {
       >
         <div
           style={{
-            width: "20%",
+            width: "18%",
             borderRight: ".05px solid lightgrey",
             paddingRight: "20px",
           }}
@@ -329,120 +385,7 @@ function DisplayHotel() {
           <div>
             <h2 style={{ fontSize: "30px" }}>Filters</h2>
           </div>
-          <div>
-            <h4 style={{ marginTop: "-15px" }}>
-              Popular locations In Sector-38
-            </h4>
-          </div>
-          {/* <div style={{}}>
-            <input
-              type="text"
-              placeholder="Search..."
-              style={{
-                padding: "9px",
-                width: "90%",
-                border: ".5px soldi lightgray",
-              }}
-            />
-          </div> */}
 
-          <div style={{ margin: "10px 0px" }}>
-            <Button
-              variant="outlined"
-              onClick={handleFilterClick}
-              style={{
-                background: "rgb(242,242,242)",
-                color: "rgb(34,34,34)",
-                border: "none",
-                padding: "5px 20px",
-                textTransform: "Capitalize",
-                marginTop: "5px",
-              }}
-            >
-              Huda City Centre Metro
-            </Button>
-          </div>
-          <div style={{ margin: "10px 0px" }}>
-            <Button
-              variant="outlined"
-              onClick={handleFilterClick}
-              style={{
-                background: "rgb(242,242,242)",
-                color: "rgb(34,34,34)",
-                border: "none",
-                padding: "5px 20px",
-                textTransform: "Capitalize",
-                marginTop: "5px",
-              }}
-            >
-              Sector 14
-            </Button>
-          </div>
-          <div style={{ margin: "10px 0px" }}>
-            <Button
-              variant="outlined"
-              onClick={handleFilterClick}
-              style={{
-                background: "rgb(242,242,242)",
-                color: "rgb(34,34,34)",
-                border: "none",
-                padding: "5px 20px",
-                textTransform: "Capitalize",
-                marginTop: "5px",
-              }}
-            >
-              Gurgaon Bus Stand
-            </Button>
-          </div>
-          <div style={{ margin: "10px 0px" }}>
-            <Button
-              variant="outlined"
-              onClick={handleFilterClick}
-              style={{
-                background: "rgb(242,242,242)",
-                color: "rgb(34,34,34)",
-                border: "none",
-                padding: "5px 20px",
-                textTransform: "Capitalize",
-                marginTop: "5px",
-              }}
-            >
-              Iffco Chowk
-            </Button>
-          </div>
-          <div style={{ margin: "10px 0px" }}>
-            <Button
-              variant="outlined"
-              onClick={handleFilterClick}
-              style={{
-                background: "rgb(242,242,242)",
-                color: "rgb(34,34,34)",
-                border: "none",
-                padding: "5px 20px",
-                textTransform: "Capitalize",
-                marginTop: "5px",
-              }}
-            >
-              Medanta Hospital
-            </Button>
-          </div>
-
-          <div>
-            <Button
-              variant="outlined"
-              style={{
-                background: "none",
-                color: "rgb(239,42,36)",
-                border: "none",
-                fontSize: "15px",
-                textTransform: "Capitalize",
-                fontWeight: "600",
-                marginLeft: "-7px",
-              }}
-            >
-              + View More
-            </Button>
-          </div>
           <hr
             style={{ border: ".2px solid rgb(224,224,224)", marginTop: "15px" }}
           />
@@ -1017,9 +960,18 @@ function DisplayHotel() {
                 }
                return;
               }) */}
-            {hoteldata.map((item) => (
-              <HotelItem key={item.id} {...item} />
-            ))}
+            {hoteldata
+              .filter((elem) => {
+                if (elem.price >= start && elem.price <= end) {
+                  return elem.city;
+                } else if (filterBy === "") {
+                  return elem;
+                }
+                return;
+              })
+              .map((item) => (
+                <HotelItem key={item.id} {...item} />
+              ))}
           </div>
           <hr style={{ border: ".2px solid rgb(224,224,224)" }} />
 
