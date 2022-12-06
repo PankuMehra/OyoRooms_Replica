@@ -1,9 +1,0 @@
-.kk_slider {
-  display: flex;
-  gap: 5px;
-  overflow: auto;
-}
-img {
-  width: 500px;
-  height: 300px;
-}
