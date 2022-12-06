@@ -6,14 +6,15 @@ import "bootstrap-daterangepicker/daterangepicker.css";
 import AutocompleteForm from "../SearchBox/SearchBox";
 import { hotelListingDataRequest } from "../../../Action/hotelListingDataRequest";
 import { connect } from "react-redux";
+import { flexbox } from "@mui/system";
 // import { loadData } from "../../../redux/authentication/localStorage";
 
 class SearchBanner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputStart: "01/08/2020",
-      inputFinish: "02/08/2020",
+      inputStart: "05/12/2022",
+      inputFinish: "05/3/2023",
       checked: true,
       showrooms: false,
       roomCount: 1,
@@ -51,6 +52,8 @@ class SearchBanner extends Component {
       inputFinish: picker.endDate.format("DD/MM/YYYY"),
     });
     console.log(this.state);
+    localStorage.setItem("start", this.state.inputStart);
+    localStorage.setItem("finish", this.state.inputFinish);
   };
 
   showRoomsHandler = () => {
@@ -65,7 +68,7 @@ class SearchBanner extends Component {
     let ele = [
       ...roomContainer,
       <div
-        className="row m-0 p-3 justify-content-around align-items-center"
+        // className="row m-0 p-3 justify-content-around align-items-center"
         id={styles.dropDownHead}
         style={{ display: "flex" }}
       >
@@ -88,6 +91,11 @@ class SearchBanner extends Component {
       </div>,
     ];
 
+    localStorage.setItem("roomCount", roomCount);
+    localStorage.setItem("guestCount", guestCount);
+    localStorage.setItem("roomCount", roomCount);
+    localStorage.setItem("guestCount", guestCount);
+
     return ele;
   };
   handleAddRoom = () => {
@@ -95,7 +103,7 @@ class SearchBanner extends Component {
     console.log(roomContainer.length);
     let ele = (
       <div
-        className="row m-0 p-3 justify-content-around align-items-center"
+        // className="row m-0 p-3 justify-content-around align-items-center"
         id={styles.dropDownHead}
       >
         <div>Room {roomCount}</div>
@@ -130,7 +138,7 @@ class SearchBanner extends Component {
         return ele;
       }
     });
-    // console.log(elem);
+    console.log(elem);
   };
   render() {
     let { showrooms, roomCount, guestCount, inputStart, inputFinish } =
@@ -213,10 +221,13 @@ class SearchBanner extends Component {
                     className={showRoomsDrop}
                     aria-labelledby="dropdownMenuButton"
                     id={styles.dropDownContainer}
+                    // style={{display: "flex"}}
                   >
                     <div
-                      className="row justify-content-around"
+                      // className="row justify-content-around"
                       id={styles.dropDownHead}
+                      // style={{display: flexbox, flexDirection: "column"}}
+                      style={{ display: "flex" }}
                     >
                       <div>Rooms</div>
                       <div>Guests</div>
@@ -231,8 +242,9 @@ class SearchBanner extends Component {
                     </div> */}
                     {handleRoomAndGuest()}
                     <div
-                      className="row justify-content-around"
+                      // className="row justify-content-around"
                       id={styles.dropDownHead}
+                      // style={{ border: "5px solid green" }}
                     >
                       <div onClick={() => handleAddRoom()}>Add Room</div>
                       <div onClick={() => handleDeleteRoom()}>Delete Room</div>

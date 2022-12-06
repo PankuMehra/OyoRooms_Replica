@@ -31,7 +31,7 @@ function App() {
         <Route path="/hotels/:id" element={<HotelDesc />} />
         <Route path="/partner" element={<Partner />} />
         <Route
-          path="/checkout"
+          path="/checkout/:id"
           element={
             <ChakraProvider>
               <Checkout />
@@ -39,7 +39,7 @@ function App() {
           }
         />
         <Route
-          path="/payment"
+          path="/payment/:id"
           element={
             <ChakraProvider>
               <Payment />
