@@ -13,15 +13,17 @@ import HotelBookingDetails from "./HotelBookingDetails";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { URL } from '../../URL';
 import "./Checkout.css"
+import { useParams } from "react-router-dom";
 
 const Checkout = () => {
   const [data, setData] = React.useState({});
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
+  let {id} = useParams();
 
   useEffect(() => {
     setLoading(true);
-    fetch(`${URL.hotel}/1`)
+    fetch(`${URL.hotel}/${id}`)
       .then((res) => res.json())
       .then((res2) => setData(res2))
       .catch((error) => setError(true))

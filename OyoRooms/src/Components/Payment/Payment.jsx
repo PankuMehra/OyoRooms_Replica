@@ -8,6 +8,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 // import breakfast from "../Images/breakfastcards.png";
 import { URL } from "../../URL";
 
@@ -16,9 +17,10 @@ const Payment = () => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
 
+  const {id} = useParams();
   useEffect(() => {
     setLoading(true);
-    fetch(`${URL.hotel}/1`)
+    fetch(`${URL.hotel}/${id}`)
       .then((res) => res.json())
       .then((res2) => setData(res2))
       .catch((error) => setError(true))
@@ -73,7 +75,7 @@ const Payment = () => {
         <Image
           w="95px"
           ml="12px"
-          src="https://qph.cf2.quoracdn.net/main-qimg-b8bf0fbc22cdb8223cbb298ea1c0ca67"
+          src=""
         />
       </Box>
 
@@ -114,27 +116,27 @@ const Payment = () => {
 
           <Box display="flex">
             <Box w="1000px">
-              <Heading fontSize="lg">{`Hotel NAme`}</Heading>
-              <Text>{`city`}</Text>
+              <Heading fontSize="lg">Hotel Grand Shiva</Heading>
+              <Text>Gurugram</Text>
 
               <Heading mt="10px" fontSize="md">{`Hotel Direction`}</Heading>
-              <Text>{`address`}</Text>
+              <Text>Huda city center</Text>
 
               <Heading mt="10px" fontSize="md">{`Primery Guest`}</Heading>
-              <Text>{`address`}</Text>
+              <Text>{`1`}</Text>
 
               <Heading mt="5px" fontSize="md">{`Email address`}</Heading>
-              <Text>{`address`}</Text>
+              <Text>{`debuvats@gmail.com`}</Text>
 
               <Heading mt="5px" fontSize="md">{`Phone Number`}</Heading>
-              <Text>{`address`}</Text>
+              <Text>{`8979562342`}</Text>
             </Box>
 
             <Box>
               <Image
                 w="300px"
                 h="180px"
-                src="https://images.oyoroomscdn.com/uploads/hotel_image/35611/large/97117bd4d09cab20.jpg"
+                src={data.Image}
               />
             </Box>
           </Box>

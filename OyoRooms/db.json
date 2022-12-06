@@ -4331,6 +4331,12 @@
       "name": "vishal guru",
       "password": "mmmmmmmm",
       "id": 5
+    },
+    {
+      "name": "kartil",
+      "email": "@gmail.com",
+      "password": "1234567890",
+      "id": 6
     }
   ]
 }
